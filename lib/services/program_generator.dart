@@ -1,277 +1,255 @@
+import 'package:fitaicoatch_app/l10n/app_localizations.dart';
+
 class ProgramGenerator {
   Map<String, List<Map<String, String>>> generateProgram({
     required String goal,
     required double weight,
     required double height,
     required String gender,
+    required AppLocalizations t,
   }) {
     /// 🔴 FEMALE PRO
     if (gender == 'Female') {
       return {
-        'Day 1': [
+        t.day1: [
           {
-            'exercise': 'Hip Thrust',
+            'exercise': t.hipThrust,
             'sets': '4',
             'reps': '12',
-            'description':
-                'Elevate glutes and hamstrings with focused Hip Thrusts, enhancing strength, tone, and lower-body power.',
+            'description': t.hipThrustDesc,
             'video': 'https://www.youtube.com/watch?v=example1',
             'imageStart': 'images/hip_thrust_begin.jpg',
             'imageEnd': 'images/hip_thrust_end.jpg',
           },
           {
-            'exercise': 'Glute Bridge',
+            'exercise': t.gluteBridge,
             'sets': '3',
             'reps': '15',
-            'description':
-                'Activate your glutes and stabilize your core with controlled Glute Bridges for a sculpted lower body.',
+            'description': t.gluteBridgeDesc,
             'video': 'https://www.youtube.com/watch?v=example2',
             'imageStart': 'images/glute_bridge_begin.jpg',
             'imageEnd': 'images/glute_bridge_end.jpg',
           },
           {
-            'exercise': 'Cable Kickbacks',
+            'exercise': t.cableKickbacks,
             'sets': '3',
             'reps': '12 each',
-            'description':
-                'Isolate and shape your glutes for better muscle definition and strength.',
+            'description': t.cableKickbacksDesc,
             'video': 'https://www.youtube.com/watch?v=example3',
             'imageStart': 'images/cable_kickbacks_begin.jpg',
             'imageEnd': 'images/cable_kickbacks_end.jpg',
           },
           {
-            'exercise': 'Bulgarian Split Squat',
+            'exercise': t.bulgarianSplitSquat,
             'sets': '3',
             'reps': '12 each',
-            'description':
-                'Build strong quads and glutes while improving balance and unilateral leg strength.',
+            'description': t.bulgarianSplitSquatDesc,
             'video': 'https://www.youtube.com/watch?v=example4',
             'imageStart': 'images/bulgarian_split_begin.jpg',
             'imageEnd': 'images/bulgarian_split_end.jpg',
           },
           {
-            'exercise': 'Step Ups',
+            'exercise': t.stepUps,
             'sets': '3',
             'reps': '12 each',
-            'description':
-                'Strengthen legs and glutes while enhancing stability and coordination.',
+            'description': t.stepUpsDesc,
             'video': 'https://www.youtube.com/watch?v=example5',
             'imageStart': 'images/step_ups_begin.jpg',
             'imageEnd': 'images/step_ups_end.jpg',
           },
           {
-            'exercise': 'Abduction Machine',
+            'exercise': t.abductionMachine,
             'sets': '3',
             'reps': '15',
-            'description':
-                'Target outer thighs and glutes for enhanced shaping and toning.',
+            'description': t.abductionMachineDesc,
             'video': 'https://www.youtube.com/watch?v=example6',
             'imageStart': 'images/abduction_machine_begin.jpg',
             'imageEnd': 'images/abduction_machine_end.jpg',
           },
         ],
-        'Day 2': [
+        t.day2: [
           {
-            'exercise': 'Lat Pulldown',
+            'exercise': t.latPulldown,
             'sets': '4',
             'reps': '10-12',
-            'description':
-                'Develop back width and lats strength for improved posture and upper-body power.',
+            'description': t.latPulldownDesc,
             'video': 'https://www.youtube.com/watch?v=example7',
             'imageStart': 'images/lat_pulldown_begin.jpg',
             'imageEnd': 'images/lat_pulldown_end.jpg',
           },
           {
-            'exercise': 'Dumbbell Row',
+            'exercise': t.dumbbellRow,
             'sets': '4',
             'reps': '10-12',
-            'description':
-                'Strengthen your mid-back and sculpt a strong, defined upper body.',
+            'description': t.dumbbellRowDesc,
             'video': 'https://www.youtube.com/watch?v=example8',
             'imageStart': 'images/dumbbell_row_begin.jpg',
             'imageEnd': 'images/dumbbell_row_end.jpg',
           },
           {
-            'exercise': 'Shoulder Press',
+            'exercise': t.shoulderPress,
             'sets': '3',
             'reps': '12',
-            'description':
-                'Build powerful deltoids and improve shoulder stability and strength.',
+            'description': t.dumbbellRowDesc,
             'video': 'https://www.youtube.com/watch?v=example9',
             'imageStart': 'images/shoulder_press_begin.jpg',
             'imageEnd': 'images/shoulder_press_end.jpg',
           },
           {
-            'exercise': 'Lateral Raise',
+            'exercise': t.lateralRaise,
             'sets': '3',
             'reps': '12-15',
-            'description':
-                'Sculpt side delts for shoulder definition and aesthetic balance.',
+            'description': t.lateralRaiseDesc,
             'video': 'https://www.youtube.com/watch?v=example10',
             'imageStart': 'images/lateral_raise_begin.jpg',
             'imageEnd': 'images/lateral_raise_end.jpg',
           },
           {
-            'exercise': 'Tricep Pushdown',
+            'exercise': t.tricepPushdown,
             'sets': '3',
             'reps': '12',
-            'description':
-                'Isolate triceps for lean muscle shaping and arm strength.',
+            'description': t.tricepPushdownDesc,
             'video': 'https://www.youtube.com/watch?v=example11',
             'imageStart': 'images/tricep_pushdown_begin.jpg',
             'imageEnd': 'images/tricep_pushdown_end.jpg',
           },
           {
-            'exercise': 'Bicep Curl',
+            'exercise': t.bicepCurl,
             'sets': '3',
             'reps': '12',
-            'description':
-                'Develop strong, toned biceps with controlled curls for full arm definition.',
+            'description': t.bicepCurlDesc,
             'video': 'https://www.youtube.com/watch?v=example12',
             'imageStart': 'images/bicep_curl_begin.jpg',
             'imageEnd': 'images/bicep_curl_end.jpg',
           },
         ],
-        'Day 3': [
+        t.day3: [
           {
-            'exercise': 'Squats',
+            'exercise': t.squats,
             'sets': '4',
             'reps': '10-12',
-            'description':
-                'Strengthen legs and glutes while enhancing core stability and mobility.',
+            'description': t.squatsDesc,
             'video': 'https://www.youtube.com/watch?v=example13',
             'imageStart': 'images/squats_begin.jpg',
             'imageEnd': 'images/squats_end.jpg',
           },
           {
-            'exercise': 'Leg Press',
+            'exercise': t.legPress,
             'sets': '4',
             'reps': '12',
-            'description':
-                'Focus on quadriceps development for powerful and defined legs.',
+            'description': t.legPressDesc,
             'video': 'https://www.youtube.com/watch?v=example14',
             'imageStart': 'images/leg_press_begin.jpg',
             'imageEnd': 'images/leg_press_end.jpg',
           },
           {
-            'exercise': 'Romanian Deadlift',
+            'exercise': t.romanianDeadlift,
             'sets': '3',
             'reps': '10-12',
-            'description':
-                'Target hamstrings and glutes to improve strength and posterior chain engagement.',
+            'description': t.romanianDeadlift,
             'video': 'https://www.youtube.com/watch?v=example15',
             'imageStart': 'images/romanian_deadlift_begin.jpg',
             'imageEnd': 'images/romanian_deadlift_end.jpg',
           },
           {
-            'exercise': 'Leg Curl',
+            'exercise': t.legCurl,
             'sets': '3',
             'reps': '12-15',
-            'description':
-                'Isolate hamstrings for optimal shaping and muscle control.',
+            'description': t.legCurlDesc,
             'video': 'https://www.youtube.com/watch?v=example16',
             'imageStart': 'images/leg_curl_begin.jpg',
             'imageEnd': 'images/leg_curl_end.jpg',
           },
           {
-            'exercise': 'Leg Extension',
+            'exercise': t.legExtension,
             'sets': '3',
             'reps': '12',
-            'description':
-                'Quad isolation for sculpting and strengthening lower body.',
+            'description': t.legExtensionDesc,
             'video': 'https://www.youtube.com/watch?v=example17',
             'imageStart': 'images/leg_extension_begin.jpg',
             'imageEnd': 'images/leg_extension_end.jpg',
           },
           {
-            'exercise': 'Calf Raises',
+            'exercise': t.calfRaises,
             'sets': '4',
             'reps': '15-20',
-            'description':
-                'Enhance calf strength and definition for balanced lower legs.',
+            'description': t.calfRaisesDesc,
             'video': 'https://www.youtube.com/watch?v=example18',
             'imageStart': 'images/calf_raises_begin.jpg',
             'imageEnd': 'images/calf_raises_end.jpg',
           },
         ],
-        'Day 4': [
+        t.day4: [
           {
-            'exercise': 'Plank',
+            'exercise': t.plank,
             'sets': '3',
             'reps': '60 sec',
-            'description':
-                'Stabilize your core and strengthen abdominal muscles with controlled planks.',
+            'description': t.plankDesc,
             'video': 'https://www.youtube.com/watch?v=example19',
             'imageStart': 'images/plank_begin.jpg',
             'imageEnd': 'images/plank_end.jpg',
           },
           {
-            'exercise': 'Russian Twists',
+            'exercise': t.russianTwists,
             'sets': '3',
             'reps': '20',
-            'description':
-                'Engage obliques for a toned midsection and rotational strength.',
+            'description': t.russianTwistsDesc,
             'video': 'https://www.youtube.com/watch?v=example20',
             'imageStart': 'images/russian_twist_begin.jpg',
             'imageEnd': 'images/russian_twist_end.jpg',
           },
           {
-            'exercise': 'Mountain Climbers',
+            'exercise': t.mountainClimbers,
             'sets': '3',
             'reps': '30 sec',
-            'description':
-                'Boost core endurance and cardiovascular fitness with dynamic movement.',
+            'description': t.mountainClimbersDesc,
             'video': 'https://www.youtube.com/watch?v=example21',
             'imageStart': 'images/mountain_climbers_begin.jpg',
             'imageEnd': 'images/mountain_climbers_end.jpg',
           },
           {
-            'exercise': 'Jump Rope',
+            'exercise': t.jumpRope,
             'sets': '3',
             'reps': '1 min',
-            'description':
-                'Enhance cardio, coordination, and agility with high-intensity rope training.',
+            'description': t.jumpRopeDesc,
             'video': 'https://www.youtube.com/watch?v=example22',
             'imageStart': 'images/jump_rope_begin.jpg',
             'imageEnd': 'images/jump_rope_end.jpg',
           },
           {
-            'exercise': 'Treadmill',
+            'exercise': t.treadmill,
             'sets': '1',
             'reps': '30 min',
-            'description':
-                'Low-impact cardio to improve circulation and recovery.',
+            'description': t.treadmillDesc,
             'video': 'https://www.youtube.com/watch?v=example23',
             'imageStart': 'images/treadmill_begin.jpg',
             'imageEnd': 'images/treadmill_end.jpg',
           },
         ],
-        'Day 5': [
+        t.day5: [
           {
-            'exercise': 'Walking',
+            'exercise': t.walking,
             'sets': '1',
             'reps': '20 min',
-            'description':
-                'Full-body stretches to improve flexibility and reduce muscle tension.',
+            'description': t.walkingDesc,
             'video': 'https://www.youtube.com/watch?v=example24',
             'imageStart': 'images/walking_begin.jpg',
             'imageEnd': 'images/walking_end.jpg',
           },
           {
-            'exercise': 'Stretching',
+            'exercise': t.stretching,
             'sets': '-',
             'reps': '-',
-            'description':
-                'Mind-body practice to enhance flexibility, balance, and mental focus.',
+            'description': t.stretchingDesc,
             'video': '',
             'imageStart': 'images/stretching_begin.jpg',
             'imageEnd': 'images/stretching_end.jpg',
           },
           {
-            'exercise': 'Yoga',
+            'exercise': t.yoga,
             'sets': '-',
             'reps': '-',
-            'description': 'Mind-body exercise.',
+            'description': t.yogaDesc,
             'video': '',
             'imageStart': 'images/yoga_begin.jpg',
             'imageEnd': 'images/yoga_end.jpg',
@@ -282,292 +260,265 @@ class ProgramGenerator {
 
     /// 🔵 MALE PRO (Bulking/Cutting/Fitness)
     final maleProgram = {
-      'Day 1': [
+      t.day1: [
         {
-          'exercise': 'Bench Press',
+          'exercise': t.benchPress,
           'sets': '4',
           'reps': '8-10',
-          'description':
-              'Build massive chest strength and size with controlled Bench Presses for optimal upper-body power.',
+          'description': t.benchPressDesc,
           'video': 'https://www.youtube.com/watch?v=gRVjAtPip0Y',
           'imageStart': 'images/hbench_press_begin.jpg',
           'imageEnd': 'images/hbench_press_end.jpg',
         },
         {
-          'exercise': 'Incline Dumbbell Press',
+          'exercise': t.inclineDumbbellPress,
           'sets': '4',
           'reps': '8-12',
-          'description':
-              'Target upper chest and shoulders for a well-balanced, sculpted torso.',
+          'description': t.inclineDumbbellPressDesc,
           'video': 'https://www.youtube.com/watch?v=8iPEnn-ltC8',
           'imageStart': 'images/hicline_dumbbell_press_begin.jpg',
           'imageEnd': 'images/hicline_dumbbell_press_end.jpg',
         },
         {
-          'exercise': 'Chest Fly',
+          'exercise': t.chestFly,
           'sets': '3',
           'reps': '10-12',
-          'description':
-              'Isolate chest muscles to enhance shaping and definition.',
+          'description': t.chestFlyDesc,
           'video': 'https://www.youtube.com/watch?v=eozdVDA78K0',
           'imageStart': 'images/hchest_fly_begin.jpg',
           'imageEnd': 'images/hchest_fly_end.jpg',
         },
         {
-          'exercise': 'Cable Crossover',
+          'exercise': t.cableCrossover,
           'sets': '3',
           'reps': '12',
-          'description':
-              'Focus on chest contraction and symmetry for maximum muscle engagement.',
+          'description': t.cableCrossoverDesc,
           'video': 'https://www.youtube.com/watch?v=E3xG7g3KGjE',
           'imageStart': 'images/hcable_crossover_begin.jpg',
           'imageEnd': 'images/hcable_crossover_end.jpg',
         },
         {
-          'exercise': 'Push Ups',
+          'exercise': t.pushUps,
           'sets': '3',
           'reps': 'max',
-          'description':
-              'Bodyweight chest exercise to build endurance, strength, and upper-body tone.',
+          'description': t.pushUpsDesc,
           'video': 'https://www.youtube.com/watch?v=_l3ySVKYVJ8',
           'imageStart': 'images/hpushups_begin.jpg',
           'imageEnd': 'images/hpushups_end.jpg',
         },
         {
-          'exercise': 'Dips',
+          'exercise': t.dips,
           'sets': '3',
           'reps': '12',
-          'description':
-              'Develop chest and triceps simultaneously for upper-body power and definition.',
+          'description': t.dipsDesc,
           'video': 'https://www.youtube.com/watch?v=2z8JmcrW-As',
 
           'imageStart': 'images/hdips_begin.jpg',
           'imageEnd': 'images/hdips_end.jpg',
         },
       ],
-      'Day 2': [
+      t.day2: [
         {
-          'exercise': 'Pull Ups',
+          'exercise': t.pullUps,
           'sets': '4',
           'reps': '8-10',
-          'description':
-              'Increase back width and build upper-body strength with focused pull-ups.',
+          'description': t.pullUpsDesc,
           'video': 'https://www.youtube.com/watch?v=eGo4IYlbE5g',
           'imageStart': 'images/hpullups_begin.jpg',
           'imageEnd': 'images/hpullups_end.jpg',
         },
         {
-          'exercise': 'Barbell Row',
+          'exercise': t.barbellRow,
           'sets': '4',
           'reps': '8-10',
-          'description':
-              'Strengthen mid-back for thickness, posture, and power.',
+          'description': t.barbellRowDesc,
           'video': 'https://www.youtube.com/watch?v=vT2GjY_Umpw',
           'imageStart': 'images/hbarbell_row_begin.jpg',
           'imageEnd': 'images/hbarbell_row_end.jpg',
         },
         {
-          'exercise': 'Lat Pulldown',
+          'exercise': t.latPulldown,
           'sets': '3',
           'reps': '10-12',
-          'description':
-              'Isolate lats for improved V-taper and upper-body strength.',
+          'description': t.latPulldownDesc,
           'video': 'https://www.youtube.com/watch?v=CAwf7n6Luuc',
           'imageStart': 'images/hlat_pulldown_begin.jpg',
           'imageEnd': 'images/hlat_pulldown_end.jpg',
         },
         {
-          'exercise': 'Seated Row',
+          'exercise': t.seatedRow,
           'sets': '3',
           'reps': '10-12',
-          'description': 'Develop mid-back density and overall pulling power.',
+          'description': t.seatedRowDesc,
           'video': 'https://www.youtube.com/watch?v=GZbfZ033f74',
           'imageStart': 'images/hseated_row_begin.jpg',
           'imageEnd': 'images/hseated_row_end.jpg',
         },
         {
-          'exercise': 'Face Pull',
+          'exercise': t.facePull,
           'sets': '3',
           'reps': '15',
-          'description':
-              'Strengthen rear delts and upper back for posture and shoulder health.',
+          'description': t.facePullDesc,
           'video': 'https://www.youtube.com/watch?v=rep-qVOkqgk',
           'imageStart': 'images/hface_pull_begin.jpg',
           'imageEnd': 'images/hface_pull_end.jpg',
         },
         {
-          'exercise': 'Deadlift',
+          'exercise': t.deadlift,
           'sets': '3',
           'reps': '5',
-          'description':
-              'Full-body strength builder engaging posterior chain, core, and grip.',
+          'description': t.deadliftDesc,
           'video': 'https://www.youtube.com/watch?v=r4MzxtBKyNE',
           'imageStart': 'images/hdeadlift_begin.jpg',
           'imageEnd': 'images/hdeadlift_end.jpg',
         },
       ],
-      'Day 3': [
+      t.day3: [
         // Legs
         {
-          'exercise': 'Squats',
+          'exercise': t.squats,
           'sets': '4',
           'reps': '8-10',
-          'description':
-              'Develop leg and glute strength while enhancing core stability and power.',
+          'description': t.squatsDesc,
           'video': 'https://www.youtube.com/watch?v=aclHkVaku9U',
           'imageStart': 'images/hsquats_begin.jpg',
           'imageEnd': 'images/hsquats_end.jpg',
         },
         {
-          'exercise': 'Leg Press',
+          'exercise': t.legPress,
           'sets': '4',
           'reps': '10-12',
-          'description':
-              'Quad-focused exercise for strong and defined lower body.',
+          'description': t.legPressDesc,
           'video': 'https://www.youtube.com/watch?v=IZxyjW7MPJQ',
           'imageStart': 'images/hleg_press_begin.jpg',
           'imageEnd': 'images/hleg_press_end.jpg',
         },
         {
-          'exercise': 'Lunges',
+          'exercise': t.lunges,
           'sets': '3',
           'reps': '12 each',
-          'description':
-              'Improve leg balance, coordination, and unilateral strength.',
+          'description': t.lungesDesc,
           'video': 'https://www.youtube.com/watch?v=QOVaHwm-Q6U',
           'imageStart': 'images/hlunges_begin.jpg',
           'imageEnd': 'images/hlunges_end.jpg',
         },
         {
-          'exercise': 'Leg Curl',
+          'exercise': t.legCurl,
           'sets': '3',
           'reps': '12-15',
-          'description':
-              'Isolate hamstrings to boost posterior chain development.',
+          'description': t.legCurlDesc,
           'video': 'https://www.youtube.com/watch?v=PY2u0gqew2I',
           'imageStart': 'images/hleg_curl_begin.jpg',
           'imageEnd': 'images/hleg_curl_end.jpg',
         },
         {
-          'exercise': 'Leg Extension',
+          'exercise': t.legExtension,
           'sets': '3',
           'reps': '12',
-          'description':
-              'Target quads for shaping, strength, and lower-leg aesthetics.',
+          'description': t.legExtensionDesc,
           'video': 'https://www.youtube.com/watch?v=YyvSfVjQeL0',
           'imageStart': 'images/hleg_extension_begin.jpg',
           'imageEnd': 'images/hleg_extension_end.jpg',
         },
         {
-          'exercise': 'Calf Raises',
+          'exercise': t.calfRaises,
           'sets': '5',
           'reps': '20',
-          'description':
-              'Sculpt and strengthen calves for balanced, powerful legs.',
+          'description': t.calfRaisesDesc,
           'video': 'https://www.youtube.com/watch?v=YMmgqO8Jo-k',
           'imageStart': 'images/hcalf_raises_begin.jpg',
           'imageEnd': 'images/hcalf_raises_end.jpg',
         },
       ],
-      'Day 4': [
+      t.day4: [
         {
-          'exercise': 'Shoulder Press',
+          'exercise': t.shoulderPress,
           'sets': '4',
           'reps': '8-10',
-          'description':
-              'Build deltoid strength and shoulder stability for a powerful upper body.',
+          'description': t.shoulderPressDesc,
           'video': 'https://www.youtube.com/watch?v=B-aVuyhvLHU',
           'imageStart': 'images/hshoulder_press_begin.jpg',
           'imageEnd': 'images/hshoulder_press_end.jpg',
         },
         {
-          'exercise': 'Lateral Raise',
+          'exercise': t.lateralRaise,
           'sets': '4',
           'reps': '12',
-          'description':
-              'Sculpt side delts for definition and aesthetic shoulder width.',
+          'description': t.lateralRaiseDesc,
           'video': 'https://www.youtube.com/watch?v=kDqklk1ZESo',
           'imageStart': 'images/hlateral_raise_begin.jpg',
           'imageEnd': 'images/hlateral_raise_end.jpg',
         },
         {
-          'exercise': 'Front Raise',
+          'exercise': t.frontRaise,
           'sets': '3',
           'reps': '12',
-          'description':
-              'Target front delts to improve shoulder shape and strength.',
+          'description': t.frontRaiseDesc,
           'video': 'https://www.youtube.com/watch?v=-t7fuZ0KhDA',
           'imageStart': 'images/hfront_raise_begin.jpg',
           'imageEnd': 'images/hfront_raise_end.jpg',
         },
         {
-          'exercise': 'Reverse Fly',
+          'exercise': t.reverseFly,
           'sets': '3',
           'reps': '12',
-          'description':
-              'Develop rear delts and upper-back muscles for posture and balance.',
+          'description': t.reverseFlyDesc,
           'video': 'https://www.youtube.com/watch?v=5v32Wv4cgrk',
           'imageStart': 'images/hreverse_fly_begin.jpg',
           'imageEnd': 'images/hreverse_fly_end.jpg',
         },
         {
-          'exercise': 'Shrugs',
+          'exercise': t.shrugs,
           'sets': '4',
           'reps': '15',
-          'description':
-              'Isolate traps to build size, strength, and upper-back thickness.',
+          'description': t.shrugsDesc,
           'video': 'https://www.youtube.com/watch?v=0qj4WTmxmAU',
           'imageStart': 'images/hshrugs_begin.jpg',
           'imageEnd': 'images/hshrugs_end.jpg',
         },
       ],
-      'Day 5': [
+      t.day5: [
         {
-          'exercise': 'Barbell Curl',
+          'exercise': t.barbellCurl,
           'sets': '4',
           'reps': '10',
-          'description':
-              'Build biceps mass and arm strength with controlled barbell curls.',
+          'description': t.barbellCurlDesc,
           'video': 'https://www.youtube.com/watch?v=kwG2ipFRgfo',
           'imageStart': 'images/hbarbell_curl_begin.jpg',
           'imageEnd': 'images/hbarbell_curl_end.jpg',
         },
         {
-          'exercise': 'Hammer Curl',
+          'exercise': t.hammerCurl,
           'sets': '3',
           'reps': '12',
-          'description':
-              'Develop biceps and forearms for balanced arm definition.',
+          'description': t.hammerCurlDesc,
           'video': 'https://www.youtube.com/watch?v=zC3nLlEvin4',
           'imageStart': 'images/hhammer_curl_begin.jpg',
           'imageEnd': 'images/hhammer_curl_end.jpg',
         },
         {
-          'exercise': 'Tricep Pushdown',
+          'exercise': t.tricepPushdown,
           'sets': '4',
           'reps': '12',
-          'description':
-              'Isolate triceps for lean muscle shaping and arm strength.',
+          'description': t.tricepPushdownDesc,
           'video': 'https://www.youtube.com/watch?v=2-LAMcpzODU',
           'imageStart': 'images/htricep_pushdown_begin.jpg',
           'imageEnd': 'images/htricep_pushdown_end.jpg',
         },
         {
-          'exercise': 'Skull Crushers',
+          'exercise': t.skullCrushers,
           'sets': '3',
           'reps': '10',
-          'description':
-              'Target the long head of the triceps for arm fullness and power.',
+          'description': t.skullCrushersDesc,
           'video': 'https://www.youtube.com/watch?v=d_KZxkY_0cM',
           'imageStart': 'images/hskull_crushers_begin.jpg',
           'imageEnd': 'images/hskull_crushers_end.jpg',
         },
         {
-          'exercise': 'Dips',
+          'exercise': t.dips,
           'sets': '3',
           'reps': 'max',
-          'description':
-              'Bodyweight chest and triceps builder to enhance upper-body tone.',
+          'description': t.dipsDesc,
           'video': 'https://www.youtube.com/watch?v=2z8JmcrW-As',
           'imageStart': 'images/hdips_begin.jpg',
           'imageEnd': 'images/hdips_end.jpg',
@@ -580,32 +531,32 @@ class ProgramGenerator {
       return maleProgram;
     } else if (goal == 'Cutting') {
       // Example cutting adjustments
-      maleProgram['Day 1'] = [
+      maleProgram[t.day1] = [
         {
-          'exercise': 'Treadmill',
+          'exercise': t.treadmill,
           'sets': '1',
           'reps': '30 min',
-          'description': 'Cardio for fat loss.',
+          'description': t.treadmillDesc,
           'video': 'https://www.youtube.com/watch?v=example_cut1',
           'imageStart': 'images/treadmill_begin.jpg',
           'imageEnd': 'images/treadmill_end.jpg',
         },
         {
-          'exercise': 'Jump Rope',
+          'exercise': t.jumpRope,
           'sets': '3',
           'reps': '1 min',
-          'description': 'High-intensity cardio.',
+          'description': t.jumpRopeDesc,
           'video': 'https://www.youtube.com/watch?v=example_cut2',
           'imageStart': 'images/jump_rope_begin.jpg',
           'imageEnd': 'images/jump_rope_end.jpg',
         },
       ];
-      maleProgram['Day 4'] = [
+      maleProgram[t.day4] = [
         {
-          'exercise': 'Full Body Circuit',
+          'exercise': t.fullBodyCircuit,
           'sets': '4',
           'reps': '12 each',
-          'description': 'Fat-burning full body.',
+          'description': t.fullBodyCircuitDesc,
           'video': 'https://www.youtube.com/watch?v=example_cut3',
           'imageStart': 'images/full_body_circuit_begin.jpg',
           'imageEnd': 'images/full_body_circuit_end.jpg',

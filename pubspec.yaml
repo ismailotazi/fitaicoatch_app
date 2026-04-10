@@ -16,6 +16,7 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   url_launcher: ^6.3.2
+  flutter_gen: ^5.13.0+1
 
 dev_dependencies:
   flutter_test:
@@ -39,3 +40,4 @@ flutter:
 
   assets:
     - images/
+  generate: true

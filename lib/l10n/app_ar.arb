@@ -1,5 +1,211 @@
 {
+  "welcomeText": "احصل على برنامج التمارين والغذاء في ثواني 💪🔥",
   "start": "ابدأ",
   "sets": "المجموعات",
-  "reps": "التكرارات"
+  "reps": "التكرارات",
+
+  "preparingProgram": "جاري تحضير برنامجك…",
+
+  "fillDetails": "أدخل معلوماتك",
+  "weight": "الوزن (كغ)",
+  "height": "الطول (سم)",
+  "enterWeight": "أدخل وزنك",
+  "enterHeight": "أدخل طولك",
+  "invalidNumber": "رقم غير صالح",
+  "gender": "الجنس",
+  "male": "ذكر",
+  "female": "أنثى",
+  "goal": "الهدف",
+  "planType": "نوع البرنامج",
+  "generateProgram": "إنشاء البرنامج",
+
+  "workoutProgram": "برنامج التمارين 💪",
+  "noWorkoutProgram": "لا يوجد برنامج تدريبي",
+
+  "description": "الوصف",
+  "watchVideo": "شاهد الفيديو",
+
+  "days": "الأيام",
+  "mealPlan": "النظام الغذائي",
+  "cheatMeal": "وجبة حرة 🍕",
+  "dinner": "العشاء",
+
+  "bulking": "زيادة الكتلة",
+  "cutting": "تنشيف",
+  "fitness": "لياقة بدنية",
+  "workout": "تمارين",
+
+  "day1": "اليوم 1",
+  "day2": "اليوم 2",
+  "day3": "اليوم 3",
+  "day4": "اليوم 4",
+  "day5": "اليوم 5",
+
+  "hipThrust": "دفع الحوض",
+  "hipThrustDesc": "تمرين لتقوية وتنشيط عضلات الأرداف",
+
+  "gluteBridge": "جسر الأرداف",
+  "gluteBridgeDesc": "يقوي عضلات المؤخرة والفخذ الخلفي",
+
+  "cableKickbacks": "رفس بالكابل",
+  "cableKickbacksDesc": "عزل عضلات الأرداف وشدها",
+
+  "bulgarianSplitSquat": "سكوات بلغاري",
+  "bulgarianSplitSquatDesc": "تقوية رجل واحدة وتحسين التوازن",
+
+  "stepUps": "الصعود على الصندوق",
+  "stepUpsDesc": "تمرين وظيفي لتقوية الرجلين",
+
+  "abductionMachine": "جهاز الفخذ الخارجي",
+  "abductionMachineDesc": "استهداف عضلات الورك الخارجية",
+
+  "latPulldown": "سحب أمامي",
+  "latPulldownDesc": "تقوية عضلات الظهر العريضة",
+
+  "dumbbellRow": "سحب دمبل",
+  "dumbbellRowDesc": "زيادة سماكة عضلات الظهر",
+
+  "shoulderPress": "ضغط الكتف",
+  "shoulderPressDesc": "تقوية عضلات الكتف",
+
+  "lateralRaise": "رفع جانبي",
+  "lateralRaiseDesc": "توسيع شكل الأكتاف",
+
+  "tricepPushdown": "تمديد الترايسبس",
+  "tricepPushdownDesc": "عزل عضلات الذراع الخلفية",
+
+  "bicepCurl": "تمرين البايسبس",
+  "bicepCurlDesc": "تقوية عضلات الذراع الأمامية",
+
+  "squats": "القرفصاء",
+  "squatsDesc": "تمرين أساسي لتقوية الرجلين",
+
+  "legPress": "ضغط الأرجل",
+  "legPressDesc": "تقوية عضلات الفخذ",
+
+  "romanianDeadlift": "رفعة رومانية",
+  "romanianDeadliftDesc": "تقوية الفخذ الخلفي والأرداف",
+
+  "legCurl": "ثني الأرجل",
+  "legCurlDesc": "عزل عضلات الفخذ الخلفي",
+
+  "legExtension": "تمديد الأرجل",
+  "legExtensionDesc": "عزل عضلات الفخذ الأمامي",
+
+  "calfRaises": "رفع السمانة",
+  "calfRaisesDesc": "تقوية عضلات الساق",
+
+  "plank": "بلانك",
+  "plankDesc": "تقوية عضلات البطن والثبات",
+
+  "russianTwists": "لف البطن",
+  "russianTwistsDesc": "تمرين دوران عضلات البطن",
+
+  "mountainClimbers": "تسلق الجبل",
+  "mountainClimbersDesc": "تمرين كارديو وحرق الدهون",
+
+  "jumpRope": "نط الحبل",
+  "jumpRopeDesc": "تمرين كارديو عالي الشدة",
+
+  "treadmill": "المشي السريع",
+  "treadmillDesc": "تمرين لحرق الدهون",
+
+  "walking": "المشي",
+  "walkingDesc": "نشاط خفيف للاستشفاء",
+
+  "stretching": "تمارين التمدد",
+  "stretchingDesc": "تحسين المرونة والاستشفاء",
+
+  "yoga": "يوغا",
+  "yogaDesc": "استرخاء وتحسين المرونة",
+
+  "benchPress": "بنش برس",
+  "benchPressDesc": "تقوية عضلات الصدر",
+
+  "inclineDumbbellPress": "بنش مائل دمبل",
+  "inclineDumbbellPressDesc": "تقوية الجزء العلوي من الصدر",
+
+  "chestFly": "تفتيح الصدر",
+  "chestFlyDesc": "عزل عضلات الصدر",
+
+  "cableCrossover": "كابل كروس",
+  "cableCrossoverDesc": "شد وتشكيل عضلات الصدر",
+
+  "pushUps": "ضغط",
+  "pushUpsDesc": "تمرين وزن الجسم للصدر",
+
+  "dips": "متوازي",
+  "dipsDesc": "تقوية الصدر والترايسبس",
+
+  "pullUps": "العقلة",
+  "pullUpsDesc": "تقوية الظهر والذراع",
+
+  "barbellRow": "سحب بار",
+  "barbellRowDesc": "زيادة سماكة الظهر",
+
+  "seatedRow": "سحب جالس",
+  "seatedRowDesc": "تقوية منتصف الظهر",
+
+  "facePull": "سحب الوجه",
+  "facePullDesc": "تقوية الكتف الخلفي",
+
+  "deadlift": "ديدليفت",
+  "deadliftDesc": "تمرين قوة شامل",
+
+  "lunges": "اندفاع",
+  "lungesDesc": "تقوية الرجلين والتوازن",
+
+  "frontRaise": "رفع أمامي",
+  "frontRaiseDesc": "تقوية الكتف الأمامي",
+
+  "reverseFly": "رفرفة خلفية",
+  "reverseFlyDesc": "تقوية الكتف الخلفي",
+
+  "shrugs": "هز الكتفين",
+  "shrugsDesc": "تقوية عضلات الترابيس",
+
+  "barbellCurl": "بايسبس بار",
+  "barbellCurlDesc": "تقوية عضلة البايسبس",
+
+  "hammerCurl": "هامر كرل",
+  "hammerCurlDesc": "تقوية الذراع والساعد",
+
+  "skullCrushers": "سكال كراشر",
+  "skullCrushersDesc": "عزل عضلة الترايسبس",
+
+  "fullBodyCircuit": "تمارين الجسم الكامل",
+  "fullBodyCircuitDesc": "حرق الدهون لجميع الجسم",
+
+  "monday": "الإثنين",
+  "tuesday": "الثلاثاء",
+  "wednesday": "الأربعاء",
+  "thursday": "الخميس",
+  "friday": "الجمعة",
+  "saturday": "السبت",
+  "sunday": "الأحد",
+
+  "breakfast": "الفطور",
+  "lunch": "الغداء",
+  "snack": "وجبة خفيفة",
+  "dinner": "العشاء",
+
+  "chickenRice": "دجاج مع الأرز",
+  "oatmealBananaPb": "شوفان مع موز وزبدة الفول السوداني",
+  "salmonSweetPotato": "سلمون مع بطاطا حلوة",
+  "eggsToast": "بيض مع توست",
+  "beefQuinoa": "لحم بقر مع الكينوا",
+  "proteinShake": "مشروب البروتين",
+  "tunaSweetPotato": "تونة مع البطاطا الحلوة",
+  "greekYogurtNuts": "ياغورت يوناني مع المكسرات",
+  "turkeyQuinoa": "ديك رومي مع الكينوا",
+  "grilledChickenSalad": "سلطة دجاج مشوي",
+  "tunaSalad": "سلطة التونة",
+  "yogurtBanana": "ياغورت مع الموز",
+
+  "pancakesBerries": "بانكيك مع توت",
+  "burgerFries": "برغر مع بطاطا مقلية",
+  "iceCream": "بوظة",
+  "pizzaSalad": "بيتزا مع سلطة",
+  "almonds": "لوز",
+  "oatsMilkFruits": "شوفان مع الحليب والفواكه"
 }
