@@ -23,10 +23,17 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale _locale = const Locale('en');
+  ThemeMode _themeMode = ThemeMode.light;
 
   void setLocale(Locale locale) {
     setState(() {
       _locale = locale;
+    });
+  }
+
+  void setThemeMode(ThemeMode mode) {
+    setState(() {
+      _themeMode = mode;
     });
   }
 
@@ -37,7 +44,64 @@ class _MyAppState extends State<MyApp> {
       title: 'FitAI Coach',
 
       locale: _locale,
+      themeMode: _themeMode,
 
+      // 🌍 FIX LANGUAGE DETECTION
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale?.languageCode) {
+            return supportedLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
+
+      // 🌞 LIGHT THEME (PROFESSIONAL)
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: const Color(0xFF2563EB),
+        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF2563EB),
+          foregroundColor: Colors.white,
+          elevation: 0,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFF2563EB),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.black87),
+        ),
+      ),
+
+      // 🌙 DARK THEME (PROFESSIONAL)
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF0F172A),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF111827),
+          foregroundColor: Colors.white,
+          elevation: 0,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFF2563EB),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
+        textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+      ),
+
+      // 🌍 LOCALIZATION
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -47,10 +111,15 @@ class _MyAppState extends State<MyApp> {
 
       supportedLocales: const [Locale('en'), Locale('ar')],
 
-      theme: ThemeData(
-        primaryColor: const Color(0xFF2563EB),
-        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
-      ),
+      // 🔥 RTL SUPPORT (IMPORTANT)
+      builder: (context, child) {
+        return Directionality(
+          textDirection: _locale.languageCode == 'ar'
+              ? TextDirection.rtl
+              : TextDirection.ltr,
+          child: child!,
+        );
+      },
 
       initialRoute: '/welcome',
       routes: {

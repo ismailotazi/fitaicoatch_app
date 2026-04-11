@@ -20,6 +20,17 @@ class _ResultScreenState extends State<ResultScreen> {
 
   bool isInit = false;
 
+  String getGenderLabel(String gender, AppLocalizations t) {
+    switch (gender) {
+      case 'male':
+        return t.male;
+      case 'female':
+        return t.female;
+      default:
+        return gender;
+    }
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -33,8 +44,9 @@ class _ResultScreenState extends State<ResultScreen> {
     final data = routeData as Map<String, String>;
     final t = AppLocalizations.of(context)!;
 
-    gender = data['gender'] ?? 'Male';
+    gender = (data['gender'] ?? 'male').toLowerCase();
     planType = data['planType'] ?? 'Workout';
+
     if (planType != 'Meal Plan') {
       program = ProgramGenerator().generateProgram(
         goal: data['goal'] ?? 'Fitness',
@@ -54,38 +66,75 @@ class _ResultScreenState extends State<ResultScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
 
-    if (planType == 'Meal Plan') {
-      final data =
-          ModalRoute.of(context)?.settings.arguments as Map<String, String>? ??
-          {};
+    final data =
+        ModalRoute.of(context)?.settings.arguments as Map<String, String>? ??
+        {};
 
-      return MealScreen(
-        data: {
-          'goal': data['goal'] ?? 'Fitness',
-          'gender': data['gender'] ?? 'Male',
-        },
+    gender = (data['gender'] ?? 'male').toLowerCase();
+    planType = data['planType'] ?? 'Workout';
+
+    /// =========================
+    /// 🍽️ MEAL PLAN SCREEN
+    /// =========================
+    if (planType == 'Meal Plan') {
+      return Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text(
+            t.mealPlan,
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Chip(
+                label: Text(
+                  getGenderLabel(gender, t),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                backgroundColor: Theme.of(context).cardColor,
+              ),
+            ),
+          ],
+        ),
+        body: MealScreen(
+          data: {'goal': data['goal'] ?? 'Fitness', 'gender': gender},
+        ),
       );
     }
 
+    /// =========================
+    /// 🏋️ WORKOUT SCREEN
+    /// =========================
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FB),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text(
           t.workoutProgram,
-          style: const TextStyle(color: Colors.black),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(12),
             child: Chip(
-              label: Text(gender),
-              backgroundColor: Colors.blue.shade50,
+              label: Text(
+                gender.toLowerCase() == 'male' ? t.male : t.female,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ),
           ),
         ],
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -112,23 +161,15 @@ class _ResultScreenState extends State<ResultScreen> {
                           vertical: 12,
                         ),
                         decoration: BoxDecoration(
-                          color: isSelected ? Colors.blue : Colors.white,
+                          color: isSelected
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).cardColor,
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            if (isSelected)
-                              BoxShadow(
-                                color: Colors.blue.withOpacity(0.3),
-                                blurRadius: 10,
-                              ),
-                          ],
                         ),
                         child: Center(
                           child: Text(
                             day,
-                            style: TextStyle(
-                              color: isSelected ? Colors.white : Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ),
                       ),
@@ -154,49 +195,30 @@ class _ResultScreenState extends State<ResultScreen> {
                           MaterialPageRoute(
                             builder: (_) => ExerciseExampleScreen(
                               exercise: {
-                                'exercise': exercise['exercise'] ?? 'No Name',
-                                'sets': exercise['sets'] ?? '0',
-                                'reps': exercise['reps'] ?? '0',
-                                'description':
-                                    exercise['description'] ??
-                                    'No description available',
-                                'imageStart':
-                                    exercise['imageStart'] ??
-                                    'images/default_begin.jpg',
-                                'imageEnd':
-                                    exercise['imageEnd'] ??
-                                    'images/default_end.jpg',
+                                'exercise': exercise['exercise'] ?? '',
+                                'sets': exercise['sets'] ?? '',
+                                'reps': exercise['reps'] ?? '',
+                                'description': exercise['description'] ?? '',
+                                'imageStart': exercise['imageStart'] ?? '',
+                                'imageEnd': exercise['imageEnd'] ?? '',
                                 'video': exercise['video'] ?? '',
                               },
                             ),
                           ),
                         );
                       },
-                      child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
+                      child: Container(
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.white, Colors.blue.shade50],
-                          ),
+                          color: Theme.of(context).cardColor,
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(color: Colors.black12, blurRadius: 6),
-                          ],
                         ),
                         child: Row(
                           children: [
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: Colors.blue.shade100,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.fitness_center,
-                                color: Colors.blue,
-                              ),
+                            Icon(
+                              Icons.fitness_center,
+                              color: Theme.of(context).colorScheme.primary,
                             ),
                             const SizedBox(width: 12),
                             Expanded(
@@ -204,21 +226,22 @@ class _ResultScreenState extends State<ResultScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    exercise['exercise'] ?? 'No Name',
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    exercise['exercise'] ?? '',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
                                     "${t.sets}: ${exercise['sets']} | ${t.reps}: ${exercise['reps']}",
-                                    style: TextStyle(color: Colors.grey[700]),
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.bodySmall,
                                   ),
                                 ],
                               ),
                             ),
-                            const Icon(Icons.arrow_forward_ios, size: 16),
                           ],
                         ),
                       ),
@@ -227,14 +250,19 @@ class _ResultScreenState extends State<ResultScreen> {
                 ),
               ),
 
-            if (program.isEmpty) Center(child: Text(t.noWorkoutProgram)),
+            if (program.isEmpty)
+              Center(
+                child: Text(
+                  t.noWorkoutProgram,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ),
           ],
         ),
       ),
     );
   }
 }
-
 // import 'package:fitaicoatch_app/screens/exercice_example_screen.dart';
 // import 'package:fitaicoatch_app/screens/meal_screen.dart';
 // import 'package:flutter/material.dart';

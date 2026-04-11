@@ -10,6 +10,7 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
   final _formKey = GlobalKey<FormState>();
+
   final _weightController = TextEditingController();
   final _heightController = TextEditingController();
 
@@ -18,28 +19,30 @@ class _FormScreenState extends State<FormScreen> {
   String _planType = 'Workout';
 
   @override
+  void dispose() {
+    _weightController.dispose();
+    _heightController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FB),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(t.fillDetails, style: const TextStyle(color: Colors.black)),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text(t.fillDetails), centerTitle: true),
+
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
           child: ListView(
             children: [
-              _animatedInput(
+              _inputField(
                 child: TextFormField(
                   controller: _weightController,
                   keyboardType: TextInputType.number,
-                  decoration: _style(t.weight),
+                  decoration: _decoration(t.weight),
                   validator: (val) {
                     if (val == null || val.isEmpty) {
                       return t.enterWeight;
@@ -54,11 +57,11 @@ class _FormScreenState extends State<FormScreen> {
 
               const SizedBox(height: 16),
 
-              _animatedInput(
+              _inputField(
                 child: TextFormField(
                   controller: _heightController,
                   keyboardType: TextInputType.number,
-                  decoration: _style(t.height),
+                  decoration: _decoration(t.height),
                   validator: (val) {
                     if (val == null || val.isEmpty) {
                       return t.enterHeight;
@@ -70,46 +73,35 @@ class _FormScreenState extends State<FormScreen> {
 
               const SizedBox(height: 20),
 
-              Text(
-                t.gender,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              Text(t.gender, style: Theme.of(context).textTheme.titleMedium),
 
-              const SizedBox(height: 8),
-
-              _animatedInput(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: RadioListTile(
-                        title: Text(t.male),
-                        value: "Male",
-                        groupValue: _gender,
-                        onChanged: (val) => setState(() => _gender = val!),
-                      ),
+              Row(
+                children: [
+                  Expanded(
+                    child: RadioListTile(
+                      value: "Male",
+                      groupValue: _gender,
+                      title: Text(t.male),
+                      onChanged: (val) => setState(() => _gender = val!),
                     ),
-                    Expanded(
-                      child: RadioListTile(
-                        title: Text(t.female),
-                        value: "Female",
-                        groupValue: _gender,
-                        onChanged: (val) => setState(() => _gender = val!),
-                      ),
+                  ),
+                  Expanded(
+                    child: RadioListTile(
+                      value: "Female",
+                      groupValue: _gender,
+                      title: Text(t.female),
+                      onChanged: (val) => setState(() => _gender = val!),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
 
               const SizedBox(height: 16),
 
-              /// 🔥 GOAL (مترجمة)
-              _animatedInput(
+              _inputField(
                 child: DropdownButtonFormField<String>(
                   value: _goal,
-                  decoration: _style(t.goal),
+                  decoration: _decoration(t.goal),
                   items: [
                     DropdownMenuItem(value: 'Bulking', child: Text(t.bulking)),
                     DropdownMenuItem(value: 'Cutting', child: Text(t.cutting)),
@@ -121,11 +113,10 @@ class _FormScreenState extends State<FormScreen> {
 
               const SizedBox(height: 16),
 
-              /// 🔥 PLAN TYPE (مترجمة)
-              _animatedInput(
+              _inputField(
                 child: DropdownButtonFormField<String>(
                   value: _planType,
-                  decoration: _style(t.planType),
+                  decoration: _decoration(t.planType),
                   items: [
                     DropdownMenuItem(value: 'Workout', child: Text(t.workout)),
                     DropdownMenuItem(
@@ -137,9 +128,10 @@ class _FormScreenState extends State<FormScreen> {
                 ),
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
 
-              _animatedInput(
+              SizedBox(
+                width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -161,11 +153,10 @@ class _FormScreenState extends State<FormScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    backgroundColor: const Color(0xFF2563EB),
                   ),
                   child: Text(
                     t.generateProgram,
-                    style: const TextStyle(fontSize: 18),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               ),
@@ -176,13 +167,11 @@ class _FormScreenState extends State<FormScreen> {
     );
   }
 
-  Widget _animatedInput({required Widget child}) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
-      padding: const EdgeInsets.all(4),
+  Widget _inputField({required Widget child}) {
+    return Container(
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 6)],
       ),
@@ -190,15 +179,10 @@ class _FormScreenState extends State<FormScreen> {
     );
   }
 
-  InputDecoration _style(String label) {
+  InputDecoration _decoration(String label) {
     return InputDecoration(
       labelText: label,
-      filled: true,
-      fillColor: Colors.white,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide.none,
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
     );
   }
 }

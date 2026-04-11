@@ -64,7 +64,7 @@ class _LoadingScreenState extends State<LoadingScreen>
     final size = MediaQuery.of(context).size.width * 0.35;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FB),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -118,10 +118,9 @@ class _LoadingScreenState extends State<LoadingScreen>
                   opacity: value,
                   child: Text(
                     AppLocalizations.of(context)!.preparingProgram,
-                    style: const TextStyle(
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black87,
                     ),
                   ),
                 );
@@ -188,15 +187,14 @@ class _AnimatedDotState extends State<AnimatedDot>
         width: 12,
         height: 12,
         margin: const EdgeInsets.symmetric(horizontal: 4),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.blue,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );
   }
 }
-
 // import 'package:flutter/material.dart';
 // import 'dart:async';
 

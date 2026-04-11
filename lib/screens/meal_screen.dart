@@ -15,12 +15,11 @@ class _MealScreenState extends State<MealScreen> {
   Map<String, Map<String, List<Map<String, String>>>> weeklyMeals = {};
 
   @override
-  @override
   void initState() {
     super.initState();
 
     final goal = widget.data['goal'] ?? 'Fitness';
-    final gender = widget.data['gender'] ?? 'male';
+    final gender = (widget.data['gender'] ?? 'Male').toLowerCase();
 
     weeklyMeals = MealGenerator().generateWeeklyMealPlan(
       goal: goal,
@@ -60,7 +59,6 @@ class _MealScreenState extends State<MealScreen> {
       case 'Cheat Meal 🍕':
         return t.cheatMeal;
 
-      // meals
       case 'chicken_rice':
         return t.chickenRice;
       case 'oatmeal_banana_pb':
@@ -88,7 +86,6 @@ class _MealScreenState extends State<MealScreen> {
       case 'yogurt_banana':
         return t.yogurtBanana;
 
-      // Sunday meals (missing before)
       case 'pancakes_berries':
         return t.pancakesBerries;
       case 'burger_fries':
@@ -108,19 +105,15 @@ class _MealScreenState extends State<MealScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-
     final meals = weeklyMeals[selectedDay] ?? {};
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FB),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text(
-          selectedDay == 'Sunday' ? t.cheatMeal : t.mealPlan,
-          style: const TextStyle(color: Colors.black),
-        ),
+        title: Text(selectedDay == 'Sunday' ? t.cheatMeal : t.mealPlan),
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -147,19 +140,15 @@ class _MealScreenState extends State<MealScreen> {
                       ),
                       decoration: BoxDecoration(
                         color: isSelected
-                            ? (day == 'Sunday'
-                                  ? Colors.redAccent
-                                  : Colors.green)
-                            : Colors.white,
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).cardColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           if (isSelected)
                             BoxShadow(
-                              color:
-                                  (day == 'Sunday'
-                                          ? Colors.redAccent
-                                          : Colors.green)
-                                      .withOpacity(0.3),
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.primary.withOpacity(0.25),
                               blurRadius: 10,
                             ),
                         ],
@@ -168,7 +157,9 @@ class _MealScreenState extends State<MealScreen> {
                         child: Text(
                           tKey(day, t),
                           style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.black,
+                            color: isSelected
+                                ? Theme.of(context).colorScheme.onPrimary
+                                : Theme.of(context).textTheme.bodyMedium?.color,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -201,14 +192,10 @@ class _MealScreenState extends State<MealScreen> {
                       children: [
                         Text(
                           tKey(mealTime, t),
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: mealTime == 'Dinner'
-                                ? Colors.orange
-                                : Colors.black87,
-                          ),
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(fontWeight: FontWeight.bold),
                         ),
+
                         const SizedBox(height: 10),
 
                         ...(meals[mealTime] ?? []).map((meal) {
@@ -216,26 +203,20 @@ class _MealScreenState extends State<MealScreen> {
                             margin: const EdgeInsets.only(bottom: 10),
                             padding: const EdgeInsets.all(14),
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.white,
-                                  selectedDay == 'Sunday'
-                                      ? Colors.red.shade50
-                                      : Colors.green.shade50,
-                                ],
-                              ),
+                              color: Theme.of(context).cardColor,
                               borderRadius: BorderRadius.circular(14),
-                              boxShadow: const [
-                                BoxShadow(color: Colors.black12, blurRadius: 4),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.05),
+                                  blurRadius: 6,
+                                ),
                               ],
                             ),
                             child: Row(
                               children: [
                                 Icon(
                                   Icons.restaurant,
-                                  color: selectedDay == 'Sunday'
-                                      ? Colors.redAccent
-                                      : Colors.green,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const SizedBox(width: 10),
                                 Expanded(
@@ -245,15 +226,18 @@ class _MealScreenState extends State<MealScreen> {
                                     children: [
                                       Text(
                                         tKey(meal['meal']!, t),
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                       ),
                                       Text(
                                         meal['cal']!,
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                        ),
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.bodySmall,
                                       ),
                                     ],
                                   ),
@@ -276,7 +260,6 @@ class _MealScreenState extends State<MealScreen> {
     );
   }
 }
-
 // import 'package:flutter/material.dart';
 // import 'package:fitaicoatch_app/l10n/app_localizations.dart';
 // import '../services/meal_generator.dart';

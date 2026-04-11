@@ -25,22 +25,25 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7FB),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        centerTitle: true,
         title: Text(
           widget.exercise['exercise'] ??
               AppLocalizations.of(context)!.workoutProgram,
-          style: const TextStyle(color: Colors.black),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
-        centerTitle: true,
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// 🖼 IMAGE SLIDER
             SizedBox(
               height: 250,
               child: PageView.builder(
@@ -53,11 +56,10 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
                     margin: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 6,
-                          offset: Offset(3, 3),
+                          color: Colors.black.withOpacity(0.08),
+                          blurRadius: 10,
                         ),
                       ],
                     ),
@@ -74,31 +76,13 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
                             child: Image.asset(
                               imagePaths[index],
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Image.asset(
-                                  index == 0
-                                      ? 'images/default_begin.jpg'
-                                      : 'images/default_end.jpg',
-                                  fit: BoxFit.cover,
-                                );
-                              },
                             ),
                           ),
-
-                          Container(color: Colors.black.withOpacity(0.3)),
-
+                          Container(color: Colors.black.withOpacity(0.25)),
                           Center(
                             child: Image.asset(
                               imagePaths[index],
                               fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Image.asset(
-                                  index == 0
-                                      ? 'images/default_begin.jpg'
-                                      : 'images/default_end.jpg',
-                                  fit: BoxFit.contain,
-                                );
-                              },
                             ),
                           ),
                         ],
@@ -111,6 +95,7 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
 
             const SizedBox(height: 8),
 
+            /// 🔘 DOTS
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
@@ -123,8 +108,8 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _currentIndex == index
-                        ? Colors.blue
-                        : Colors.grey[400],
+                        ? Theme.of(context).colorScheme.primary
+                        : Colors.grey,
                   ),
                 ),
               ),
@@ -132,63 +117,80 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
 
             const SizedBox(height: 16),
 
+            /// 🏋️ TITLE
             Text(
               widget.exercise['exercise'] ??
                   AppLocalizations.of(context)!.workoutProgram,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
 
             const SizedBox(height: 6),
 
+            /// 📊 SETS + REPS
             Text(
               "${AppLocalizations.of(context)!.sets}: ${widget.exercise['sets']} | ${AppLocalizations.of(context)!.reps}: ${widget.exercise['reps']}",
-              style: const TextStyle(fontSize: 16),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
 
             const SizedBox(height: 12),
 
             Text(
               AppLocalizations.of(context)!.workoutProgram,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
 
             const SizedBox(height: 6),
 
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height * 0.25,
-              ),
+            /// 📖 DESCRIPTION (fix scroll issue)
+            Flexible(
               child: SingleChildScrollView(
                 child: Text(
                   widget.exercise['description'] ??
                       "This exercise focuses on building strength and form.",
-                  style: const TextStyle(fontSize: 16),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
             ),
 
-            const SizedBox(height: 30),
+            const SizedBox(height: 10),
 
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: () async {
-                  final videoUrl = widget.exercise['video'];
-                  if (videoUrl != null && videoUrl.isNotEmpty) {
-                    await launchUrl(Uri.parse(videoUrl));
-                  }
-                },
-                icon: const Icon(Icons.play_circle_fill),
-                label: Text(AppLocalizations.of(context)!.watchVideo),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 16,
+            /// ▶️ BUTTON (fixed position)
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Center(
+                  child: ElevatedButton.icon(
+                    onPressed: () async {
+                      final videoUrl = widget.exercise['video'];
+                      if (videoUrl != null && videoUrl.isNotEmpty) {
+                        await launchUrl(Uri.parse(videoUrl));
+                      }
+                    },
+                    icon: const Icon(Icons.play_circle_fill),
+
+                    label: Text(
+                      AppLocalizations.of(context)!.watchVideo,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 16,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      elevation: 6,
+                    ),
                   ),
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  elevation: 6,
                 ),
               ),
             ),
