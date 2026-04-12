@@ -114,271 +114,271 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hipThrust => 'دفع الحوض';
 
   @override
-  String get hipThrustDesc => 'تمرين لتقوية وتنشيط عضلات الأرداف';
+  String get hipThrustDesc => 'تمرين فعال لتقوية وتنشيط عضلات الأرداف، يساعد على تحسين القوة وبناء عضلات متناسقة مع تقليل خطر الإصابة.';
 
   @override
   String get gluteBridge => 'جسر الأرداف';
 
   @override
-  String get gluteBridgeDesc => 'يقوي عضلات المؤخرة والفخذ الخلفي';
+  String get gluteBridgeDesc => 'تمرين فعال لتقوية عضلات الأرداف والفخذ الخلفي، يساعد على تحسين الاستقرار وتعزيز القوة مع تقليل خطر الإصابة.';
 
   @override
-  String get cableKickbacks => 'رفس بالكابل';
+  String get cableKickbacks => 'ركلات الكابل الخلفية';
 
   @override
-  String get cableKickbacksDesc => 'عزل عضلات الأرداف وشدها';
+  String get cableKickbacksDesc => 'تمرين عزل فعال لعضلات الأرداف يساعد على تحسين الشكل والتناسق وزيادة التحديد العضلي.';
 
   @override
-  String get bulgarianSplitSquat => 'سكوات بلغاري';
+  String get bulgarianSplitSquat => 'القرفصاء البلغارية';
 
   @override
-  String get bulgarianSplitSquatDesc => 'تقوية رجل واحدة وتحسين التوازن';
+  String get bulgarianSplitSquatDesc => 'تمرين قوة وتوازن على رجل واحدة، يساعد على تقوية عضلات الأرجل وتحسين الاستقرار والتناسق العضلي.';
 
   @override
   String get stepUps => 'الصعود على الصندوق';
 
   @override
-  String get stepUpsDesc => 'تمرين وظيفي لتقوية الرجلين';
+  String get stepUpsDesc => 'تمرين وظيفي لتقوية الجزء السفلي من الجسم، يساعد على تحسين القوة والتوازن والقدرة الحركية.';
 
   @override
-  String get abductionMachine => 'جهاز الفخذ الخارجي';
+  String get abductionMachine => 'جهاز فتح الورك';
 
   @override
-  String get abductionMachineDesc => 'استهداف عضلات الورك الخارجية';
+  String get abductionMachineDesc => 'تمرين يستهدف العضلات الخارجية للأرداف والورك، يساعد على تحسين الشكل والثبات وتقوية الجزء السفلي.';
 
   @override
-  String get latPulldown => 'سحب أمامي';
+  String get latPulldown => 'سحب الكابل العلوي';
 
   @override
-  String get latPulldownDesc => 'تقوية عضلات الظهر العريضة';
+  String get latPulldownDesc => 'تمرين لتقوية عضلات الظهر وزيادة العرض والقوة، يساعد على تحسين الشكل العام للجزء العلوي من الجسم.';
 
   @override
-  String get dumbbellRow => 'سحب دمبل';
+  String get dumbbellRow => 'سحب الدمبل';
 
   @override
-  String get dumbbellRowDesc => 'زيادة سماكة عضلات الظهر';
+  String get dumbbellRowDesc => 'تمرين يقوي عضلات منتصف الظهر ويزيد من السماكة والقوة، يساعد على تحسين الوضعية وبناء ظهر متناسق.';
 
   @override
   String get shoulderPress => 'ضغط الكتف';
 
   @override
-  String get shoulderPressDesc => 'تقوية عضلات الكتف';
+  String get shoulderPressDesc => 'تمرين لتقوية وتطوير عضلات الكتف، يساعد على زيادة القوة وتحسين شكل الجزء العلوي من الجسم.';
 
   @override
-  String get lateralRaise => 'رفع جانبي';
+  String get lateralRaise => 'رفع جانبي للكتف';
 
   @override
-  String get lateralRaiseDesc => 'توسيع شكل الأكتاف';
+  String get lateralRaiseDesc => 'تمرين عزل يستهدف العضلات الجانبية للكتف، يساعد على زيادة عرض الكتفين وتحسين الشكل الجمالي للجزء العلوي.';
 
   @override
-  String get tricepPushdown => 'تمديد الترايسبس';
+  String get tricepPushdown => 'دفع العضلة الثلاثية';
 
   @override
-  String get tricepPushdownDesc => 'عزل عضلات الذراع الخلفية';
+  String get tricepPushdownDesc => 'تمرين عزل يستهدف عضلات الترايسبس، يساعد على زيادة القوة وتحسين شكل الذراعين.';
 
   @override
-  String get bicepCurl => 'تمرين البايسبس';
+  String get bicepCurl => 'ثني الذراع بالدمبل';
 
   @override
-  String get bicepCurlDesc => 'تقوية عضلات الذراع الأمامية';
+  String get bicepCurlDesc => 'تمرين يستهدف عضلات البايسبس، يساعد على زيادة الحجم والقوة وتحسين شكل الذراع.';
 
   @override
   String get squats => 'القرفصاء';
 
   @override
-  String get squatsDesc => 'تمرين أساسي لتقوية الرجلين';
+  String get squatsDesc => 'تمرين مركب لتقوية الجزء السفلي من الجسم، يساعد على بناء القوة والكتلة العضلية وتحسين الأداء الرياضي.';
 
   @override
   String get legPress => 'ضغط الأرجل';
 
   @override
-  String get legPressDesc => 'تقوية عضلات الفخذ';
+  String get legPressDesc => 'تمرين على الجهاز يستهدف عضلات الأرجل، يساعد على زيادة القوة والكتلة العضلية بشكل آمن ومتحكم فيه.';
 
   @override
-  String get romanianDeadlift => 'رفعة رومانية';
+  String get romanianDeadlift => 'الرفعة الميتة الرومانية';
 
   @override
-  String get romanianDeadliftDesc => 'تقوية الفخذ الخلفي والأرداف';
+  String get romanianDeadliftDesc => 'تمرين قوي يستهدف عضلات الفخذ الخلفية والأرداف، يساعد على زيادة القوة وتحسين التوازن العضلي.';
 
   @override
-  String get legCurl => 'ثني الأرجل';
+  String get legCurl => 'ثني الرجل';
 
   @override
-  String get legCurlDesc => 'عزل عضلات الفخذ الخلفي';
+  String get legCurlDesc => 'تمرين عزل يستهدف عضلات الفخذ الخلفية، يساعد على تقويتها وتحسين الأداء العضلي.';
 
   @override
-  String get legExtension => 'تمديد الأرجل';
+  String get legExtension => 'تمديد الرجل';
 
   @override
-  String get legExtensionDesc => 'عزل عضلات الفخذ الأمامي';
+  String get legExtensionDesc => 'تمرين عزل يستهدف عضلات الفخذ الأمامية، يساعد على زيادة القوة والتحديد العضلي.';
 
   @override
   String get calfRaises => 'رفع السمانة';
 
   @override
-  String get calfRaisesDesc => 'تقوية عضلات الساق';
+  String get calfRaisesDesc => 'تمرين لتقوية عضلات السمانة وتحسين القوة والاستقرار في الجزء السفلي من الساق.';
 
   @override
-  String get plank => 'بلانك';
+  String get plank => 'البلانك';
 
   @override
-  String get plankDesc => 'تقوية عضلات البطن والثبات';
+  String get plankDesc => 'تمرين أساسي لتقوية عضلات الجذع (Core)، يساعد على تحسين الثبات، التوازن، والتحمل العضلي.';
 
   @override
-  String get russianTwists => 'لف البطن';
+  String get russianTwists => 'الالتفاف الروسي';
 
   @override
-  String get russianTwistsDesc => 'تمرين دوران عضلات البطن';
+  String get russianTwistsDesc => 'تمرين يستهدف عضلات البطن مع دوران الجذع، يساعد على تقوية الـ Core وتحسين التحكم الحركي.';
 
   @override
   String get mountainClimbers => 'تسلق الجبل';
 
   @override
-  String get mountainClimbersDesc => 'تمرين كارديو وحرق الدهون';
+  String get mountainClimbersDesc => 'تمرين يجمع بين الكارديو وعضلات البطن، يساعد على حرق الدهون وتحسين اللياقة البدنية.';
 
   @override
   String get jumpRope => 'نط الحبل';
 
   @override
-  String get jumpRopeDesc => 'تمرين كارديو عالي الشدة';
+  String get jumpRopeDesc => 'تمرين كارديو عالي الشدة يساعد على حرق السعرات الحرارية بسرعة وتحسين التحمل القلبي.';
 
   @override
-  String get treadmill => 'المشي السريع';
+  String get treadmill => 'المشي/الجري على الجهاز';
 
   @override
-  String get treadmillDesc => 'تمرين لحرق الدهون';
+  String get treadmillDesc => 'تمرين كارديو فعال لحرق الدهون وتحسين صحة القلب واللياقة العامة.';
 
   @override
   String get walking => 'المشي';
 
   @override
-  String get walkingDesc => 'نشاط خفيف للاستشفاء';
+  String get walkingDesc => 'نشاط خفيف يساعد على الاستشفاء، تحسين الدورة الدموية وتقليل التوتر العضلي.';
 
   @override
-  String get stretching => 'تمارين التمدد';
+  String get stretching => 'تمارين الإطالة';
 
   @override
-  String get stretchingDesc => 'تحسين المرونة والاستشفاء';
+  String get stretchingDesc => 'تمارين تساعد على تحسين المرونة، تقليل الشد العضلي وتسريع الاستشفاء.';
 
   @override
-  String get yoga => 'يوغا';
+  String get yoga => 'اليوغا';
 
   @override
-  String get yogaDesc => 'استرخاء وتحسين المرونة';
+  String get yogaDesc => 'تمارين تجمع بين المرونة والتنفس والاسترخاء، تساعد على تحسين الصحة الجسدية والعقلية.';
 
   @override
-  String get benchPress => 'بنش برس';
+  String get benchPress => 'ضغط الصدر';
 
   @override
-  String get benchPressDesc => 'تقوية عضلات الصدر';
+  String get benchPressDesc => 'تمرين أساسي لتقوية عضلات الصدر وزيادة الكتلة العضلية وتحسين قوة الدفع في الجزء العلوي من الجسم.';
 
   @override
-  String get inclineDumbbellPress => 'بنش مائل دمبل';
+  String get inclineDumbbellPress => 'ضغط الدمبل المائل';
 
   @override
-  String get inclineDumbbellPressDesc => 'تقوية الجزء العلوي من الصدر';
+  String get inclineDumbbellPressDesc => 'تمرين يستهدف الجزء العلوي من الصدر، يساعد على زيادة القوة والكتلة العضلية وتحسين التناسق.';
 
   @override
   String get chestFly => 'تفتيح الصدر';
 
   @override
-  String get chestFlyDesc => 'عزل عضلات الصدر';
+  String get chestFlyDesc => 'تمرين عزل لعضلات الصدر يساعد على تحسين التحديد والشكل العضلي.';
 
   @override
-  String get cableCrossover => 'كابل كروس';
+  String get cableCrossover => 'الكابل كروس';
 
   @override
-  String get cableCrossoverDesc => 'شد وتشكيل عضلات الصدر';
+  String get cableCrossoverDesc => 'تمرين يستهدف عضلات الصدر لتحسين الانقباض العضلي والتشكيل.';
 
   @override
-  String get pushUps => 'ضغط';
+  String get pushUps => 'تمارين الضغط';
 
   @override
-  String get pushUpsDesc => 'تمرين وزن الجسم للصدر';
+  String get pushUpsDesc => 'تمرين وزن الجسم يقوي عضلات الصدر والترايسبس والكتف.';
 
   @override
-  String get dips => 'متوازي';
+  String get dips => 'تمارين المتوازي';
 
   @override
-  String get dipsDesc => 'تقوية الصدر والترايسبس';
+  String get dipsDesc => 'تمرين قوي لتقوية الجزء العلوي من الجسم، يستهدف الصدر والترايسبس.';
 
   @override
-  String get pullUps => 'العقلة';
+  String get pullUps => 'تمارين العقلة';
 
   @override
-  String get pullUpsDesc => 'تقوية الظهر والذراع';
+  String get pullUpsDesc => 'تمرين قوي لتقوية عضلات الظهر واللاتس وتحسين قوة الجزء العلوي من الجسم.';
 
   @override
-  String get barbellRow => 'سحب بار';
+  String get barbellRow => 'سحب البار';
 
   @override
-  String get barbellRowDesc => 'زيادة سماكة الظهر';
+  String get barbellRowDesc => 'تمرين مركب يساعد على زيادة سماكة الظهر وتقوية عضلاته.';
 
   @override
-  String get seatedRow => 'سحب جالس';
+  String get seatedRow => 'السحب الجالس';
 
   @override
-  String get seatedRowDesc => 'تقوية منتصف الظهر';
+  String get seatedRowDesc => 'تمرين يقوي عضلات منتصف الظهر ويساعد على تحسين القوام.';
 
   @override
   String get facePull => 'سحب الوجه';
 
   @override
-  String get facePullDesc => 'تقوية الكتف الخلفي';
+  String get facePullDesc => 'تمرين يستهدف العضلات الخلفية للكتف ويساعد على تحسين صحة واستقرار الكتف.';
 
   @override
-  String get deadlift => 'ديدليفت';
+  String get deadlift => 'الرفعة الميتة';
 
   @override
-  String get deadliftDesc => 'تمرين قوة شامل';
+  String get deadliftDesc => 'تمرين شامل يقوي الجسم بالكامل ويزيد من القوة والكتلة العضلية.';
 
   @override
-  String get lunges => 'اندفاع';
+  String get lunges => 'الاندفاع الأمامي';
 
   @override
-  String get lungesDesc => 'تقوية الرجلين والتوازن';
+  String get lungesDesc => 'تمرين لتقوية عضلات الأرجل وتحسين التوازن والتناسق الحركي.';
 
   @override
-  String get frontRaise => 'رفع أمامي';
+  String get frontRaise => 'رفع أمامي للكتف';
 
   @override
-  String get frontRaiseDesc => 'تقوية الكتف الأمامي';
+  String get frontRaiseDesc => 'تمرين عزل يستهدف عضلات الكتف الأمامية.';
 
   @override
-  String get reverseFly => 'رفرفة خلفية';
+  String get reverseFly => 'الرفرفة العكسية';
 
   @override
-  String get reverseFlyDesc => 'تقوية الكتف الخلفي';
+  String get reverseFlyDesc => 'تمرين يقوي العضلات الخلفية للكتف ويحسن وضعية الجسم.';
 
   @override
-  String get shrugs => 'هز الكتفين';
+  String get shrugs => 'رفع الأكتاف';
 
   @override
-  String get shrugsDesc => 'تقوية عضلات الترابيس';
+  String get shrugsDesc => 'تمرين يقوي عضلات الترابيس ويساعد على زيادة حجمها.';
 
   @override
-  String get barbellCurl => 'بايسبس بار';
+  String get barbellCurl => 'ثني البار';
 
   @override
-  String get barbellCurlDesc => 'تقوية عضلة البايسبس';
+  String get barbellCurlDesc => 'تمرين لتقوية عضلات البايسبس وزيادة الحجم والقوة.';
 
   @override
-  String get hammerCurl => 'هامر كرل';
+  String get hammerCurl => 'ثني المطرقة';
 
   @override
-  String get hammerCurlDesc => 'تقوية الذراع والساعد';
+  String get hammerCurlDesc => 'تمرين يقوي عضلات البايسبس والساعد.';
 
   @override
-  String get skullCrushers => 'سكال كراشر';
+  String get skullCrushers => 'تمرين الترايسبس (Skull Crushers)';
 
   @override
-  String get skullCrushersDesc => 'عزل عضلة الترايسبس';
+  String get skullCrushersDesc => 'تمرين عزل يستهدف عضلات الترايسبس لتقويتها وزيادة حجمها.';
 
   @override
-  String get fullBodyCircuit => 'تمارين الجسم الكامل';
+  String get fullBodyCircuit => 'تمرين دائري شامل';
 
   @override
-  String get fullBodyCircuitDesc => 'حرق الدهون لجميع الجسم';
+  String get fullBodyCircuitDesc => 'تمرين عالي الشدة لحرق الدهون وتدريب الجسم كامل.';
 
   @override
   String get monday => 'الإثنين';

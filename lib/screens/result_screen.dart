@@ -116,20 +116,24 @@ class _ResultScreenState extends State<ResultScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
+
+        foregroundColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black, // 👈 الحل الحقيقي
+
         title: Text(
           t.workoutProgram,
           style: Theme.of(
             context,
           ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
         ),
+
         actions: [
           Padding(
             padding: const EdgeInsets.all(12),
             child: Chip(
-              label: Text(
-                gender.toLowerCase() == 'male' ? t.male : t.female,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
+              label: Text(gender.toLowerCase() == 'male' ? t.male : t.female),
+              backgroundColor: Theme.of(context).cardColor,
             ),
           ),
         ],

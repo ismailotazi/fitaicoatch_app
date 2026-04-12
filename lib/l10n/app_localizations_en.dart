@@ -114,271 +114,271 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hipThrust => 'Hip Thrust';
 
   @override
-  String get hipThrustDesc => 'Glute activation exercise for strength and growth';
+  String get hipThrustDesc => 'An effective exercise to activate and strengthen the glutes, helping improve strength, build muscle, and reduce the risk of injury.';
 
   @override
   String get gluteBridge => 'Glute Bridge';
 
   @override
-  String get gluteBridgeDesc => 'Targets glutes and hamstrings effectively';
+  String get gluteBridgeDesc => 'An effective exercise to strengthen the glutes and hamstrings, improving stability, enhancing strength, and reducing the risk of injury.';
 
   @override
   String get cableKickbacks => 'Cable Kickbacks';
 
   @override
-  String get cableKickbacksDesc => 'Isolates glutes for shaping and toning';
+  String get cableKickbacksDesc => 'An isolation exercise that targets the glutes, helping improve shape, tone, and muscle definition.';
 
   @override
   String get bulgarianSplitSquat => 'Bulgarian Split Squat';
 
   @override
-  String get bulgarianSplitSquatDesc => 'Single-leg strength and balance exercise';
+  String get bulgarianSplitSquatDesc => 'A single-leg strength and balance exercise that builds leg strength, stability, and muscle symmetry.';
 
   @override
   String get stepUps => 'Step Ups';
 
   @override
-  String get stepUpsDesc => 'Functional lower body strength movement';
+  String get stepUpsDesc => 'A functional lower body exercise that improves strength, balance, and overall movement performance.';
 
   @override
   String get abductionMachine => 'Abduction Machine';
 
   @override
-  String get abductionMachineDesc => 'Targets outer glutes and hips';
+  String get abductionMachineDesc => 'Targets the outer glutes and hips, helping improve shape, stability, and lower body strength.';
 
   @override
   String get latPulldown => 'Lat Pulldown';
 
   @override
-  String get latPulldownDesc => 'Back exercise for width and strength';
+  String get latPulldownDesc => 'A back exercise that builds width and strength, improving upper body shape and overall pulling power.';
 
   @override
   String get dumbbellRow => 'Dumbbell Row';
 
   @override
-  String get dumbbellRowDesc => 'Builds mid-back thickness and strength';
+  String get dumbbellRowDesc => 'Builds mid-back thickness and strength, improving posture and overall back development.';
 
   @override
   String get shoulderPress => 'Shoulder Press';
 
   @override
-  String get shoulderPressDesc => 'Overhead press for shoulder development';
+  String get shoulderPressDesc => 'An overhead pressing exercise that builds shoulder strength, size, and overall upper body development.';
 
   @override
   String get lateralRaise => 'Lateral Raise';
 
   @override
-  String get lateralRaiseDesc => 'Isolates side delts for width';
+  String get lateralRaiseDesc => 'An isolation exercise targeting the side delts, helping improve shoulder width and upper body aesthetics.';
 
   @override
   String get tricepPushdown => 'Tricep Pushdown';
 
   @override
-  String get tricepPushdownDesc => 'Isolation exercise for triceps';
+  String get tricepPushdownDesc => 'An isolation exercise targeting the triceps, helping build arm strength and definition.';
 
   @override
   String get bicepCurl => 'Bicep Curl';
 
   @override
-  String get bicepCurlDesc => 'Arm exercise for biceps growth';
+  String get bicepCurlDesc => 'An arm exercise that targets the biceps, helping increase muscle size, strength, and definition.';
 
   @override
   String get squats => 'Squats';
 
   @override
-  String get squatsDesc => 'Compound leg exercise for strength';
+  String get squatsDesc => 'A compound lower body exercise that builds strength, muscle mass, and overall athletic performance.';
 
   @override
   String get legPress => 'Leg Press';
 
   @override
-  String get legPressDesc => 'Machine-based leg strength exercise';
+  String get legPressDesc => 'A machine-based lower body exercise that builds leg strength and muscle mass in a controlled way.';
 
   @override
   String get romanianDeadlift => 'Romanian Deadlift';
 
   @override
-  String get romanianDeadliftDesc => 'Hamstring and glute strength builder';
+  String get romanianDeadliftDesc => 'A powerful exercise targeting the hamstrings and glutes, improving strength and muscle balance.';
 
   @override
   String get legCurl => 'Leg Curl';
 
   @override
-  String get legCurlDesc => 'Isolates hamstrings';
+  String get legCurlDesc => 'An isolation exercise that targets the hamstrings, improving strength and muscle performance.';
 
   @override
   String get legExtension => 'Leg Extension';
 
   @override
-  String get legExtensionDesc => 'Isolates quadriceps';
+  String get legExtensionDesc => 'An isolation exercise targeting the quadriceps, helping build strength and muscle definition.';
 
   @override
   String get calfRaises => 'Calf Raises';
 
   @override
-  String get calfRaisesDesc => 'Strengthens calf muscles';
+  String get calfRaisesDesc => 'Strengthens the calf muscles, improving lower leg strength and stability.';
 
   @override
   String get plank => 'Plank';
 
   @override
-  String get plankDesc => 'Core stability and endurance';
+  String get plankDesc => 'A core exercise that builds stability, improves balance, and increases muscular endurance.';
 
   @override
   String get russianTwists => 'Russian Twists';
 
   @override
-  String get russianTwistsDesc => 'Core rotation exercise';
+  String get russianTwistsDesc => 'A core rotation exercise that strengthens the abdominal muscles and improves control and stability.';
 
   @override
   String get mountainClimbers => 'Mountain Climbers';
 
   @override
-  String get mountainClimbersDesc => 'Cardio and core workout';
+  String get mountainClimbersDesc => 'A dynamic full-body exercise that combines cardio and core training to improve endurance and burn calories.';
 
   @override
   String get jumpRope => 'Jump Rope';
 
   @override
-  String get jumpRopeDesc => 'High intensity cardio exercise';
+  String get jumpRopeDesc => 'A high-intensity cardio exercise that boosts endurance, coordination, and calorie burning.';
 
   @override
   String get treadmill => 'Treadmill';
 
   @override
-  String get treadmillDesc => 'Cardio training for fat loss';
+  String get treadmillDesc => 'An effective cardio workout for fat loss, improving heart health and overall fitness.';
 
   @override
   String get walking => 'Walking';
 
   @override
-  String get walkingDesc => 'Light cardio recovery activity';
+  String get walkingDesc => 'A light recovery activity that improves blood circulation and supports active recovery.';
 
   @override
   String get stretching => 'Stretching';
 
   @override
-  String get stretchingDesc => 'Improves flexibility and recovery';
+  String get stretchingDesc => 'Exercises that improve flexibility, reduce muscle tension, and support recovery.';
 
   @override
   String get yoga => 'Yoga';
 
   @override
-  String get yogaDesc => 'Flexibility and mental relaxation';
+  String get yogaDesc => 'A practice combining flexibility, breathing, and relaxation to improve both physical and mental well-being.';
 
   @override
   String get benchPress => 'Bench Press';
 
   @override
-  String get benchPressDesc => 'Chest strength and muscle building';
+  String get benchPressDesc => 'A fundamental upper body exercise that builds chest strength, muscle mass, and pushing power.';
 
   @override
   String get inclineDumbbellPress => 'Incline Dumbbell Press';
 
   @override
-  String get inclineDumbbellPressDesc => 'Upper chest development exercise';
+  String get inclineDumbbellPressDesc => 'An upper chest exercise that helps build strength, size, and muscle balance.';
 
   @override
   String get chestFly => 'Chest Fly';
 
   @override
-  String get chestFlyDesc => 'Chest isolation for muscle definition';
+  String get chestFlyDesc => 'An isolation exercise that targets the chest muscles for better definition and shape.';
 
   @override
   String get cableCrossover => 'Cable Crossover';
 
   @override
-  String get cableCrossoverDesc => 'Chest shaping and contraction';
+  String get cableCrossoverDesc => 'A chest exercise focused on muscle contraction and shaping for better definition.';
 
   @override
   String get pushUps => 'Push Ups';
 
   @override
-  String get pushUpsDesc => 'Bodyweight chest and triceps exercise';
+  String get pushUpsDesc => 'A bodyweight exercise that strengthens the chest, triceps, and shoulders.';
 
   @override
   String get dips => 'Dips';
 
   @override
-  String get dipsDesc => 'Upper body pushing strength';
+  String get dipsDesc => 'A powerful upper body exercise that builds pushing strength in chest and triceps.';
 
   @override
   String get pullUps => 'Pull Ups';
 
   @override
-  String get pullUpsDesc => 'Upper back and lat strength';
+  String get pullUpsDesc => 'A powerful upper body exercise that builds back and lat strength.';
 
   @override
   String get barbellRow => 'Barbell Row';
 
   @override
-  String get barbellRowDesc => 'Back thickness compound movement';
+  String get barbellRowDesc => 'A compound movement that builds back thickness and overall strength.';
 
   @override
   String get seatedRow => 'Seated Row';
 
   @override
-  String get seatedRowDesc => 'Mid-back strength and posture';
+  String get seatedRowDesc => 'An exercise that improves mid-back strength and posture.';
 
   @override
   String get facePull => 'Face Pull';
 
   @override
-  String get facePullDesc => 'Rear delt and shoulder health';
+  String get facePullDesc => 'An exercise for rear delts and shoulder health and stability.';
 
   @override
   String get deadlift => 'Deadlift';
 
   @override
-  String get deadliftDesc => 'Full body strength movement';
+  String get deadliftDesc => 'A full-body strength movement that builds power and muscle mass.';
 
   @override
   String get lunges => 'Lunges';
 
   @override
-  String get lungesDesc => 'Leg strength and balance exercise';
+  String get lungesDesc => 'A lower body exercise that builds leg strength, balance, and coordination.';
 
   @override
   String get frontRaise => 'Front Raise';
 
   @override
-  String get frontRaiseDesc => 'Front shoulder isolation';
+  String get frontRaiseDesc => 'An isolation exercise that targets the front shoulder muscles.';
 
   @override
   String get reverseFly => 'Reverse Fly';
 
   @override
-  String get reverseFlyDesc => 'Rear delt development';
+  String get reverseFlyDesc => 'An exercise that develops the rear delts and improves shoulder posture.';
 
   @override
   String get shrugs => 'Shrugs';
 
   @override
-  String get shrugsDesc => 'Trapezius muscle building';
+  String get shrugsDesc => 'An exercise that strengthens and builds the trapezius muscles.';
 
   @override
   String get barbellCurl => 'Barbell Curl';
 
   @override
-  String get barbellCurlDesc => 'Biceps strength exercise';
+  String get barbellCurlDesc => 'A strength exercise that builds biceps size and power.';
 
   @override
   String get hammerCurl => 'Hammer Curl';
 
   @override
-  String get hammerCurlDesc => 'Biceps and forearm development';
+  String get hammerCurlDesc => 'An exercise that develops biceps and forearm strength.';
 
   @override
   String get skullCrushers => 'Skull Crushers';
 
   @override
-  String get skullCrushersDesc => 'Triceps isolation exercise';
+  String get skullCrushersDesc => 'An isolation exercise that targets and strengthens the triceps.';
 
   @override
   String get fullBodyCircuit => 'Full Body Circuit';
 
   @override
-  String get fullBodyCircuitDesc => 'Fat burning full body workout';
+  String get fullBodyCircuitDesc => 'A high-intensity workout designed to burn fat and train the entire body.';
 
   @override
   String get monday => 'Monday';

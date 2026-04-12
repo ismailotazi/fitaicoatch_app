@@ -138,195 +138,93 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size.width * 0.35;
+    final width = MediaQuery.of(context).size.width;
+    final isTablet = width > 600;
+    final isWeb = width > 1000;
+
+    final logoSize = isWeb
+        ? 220.0
+        : isTablet
+        ? 180.0
+        : width * 0.35;
+
+    final padding = isWeb
+        ? 80.0
+        : isTablet
+        ? 40.0
+        : 24.0;
 
     return Scaffold(
       appBar: _buildAppBar(),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ScaleTransition(
-                scale: _scaleAnimation,
-                child: Container(
-                  height: size,
-                  width: size,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: [Color(0xFF2563EB), Color(0xFF3B82F6)],
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(padding),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ScaleTransition(
+                      scale: _scaleAnimation,
+                      child: Container(
+                        height: logoSize,
+                        width: logoSize,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF2563EB), Color(0xFF3B82F6)],
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.asset(
+                            'images/off_splash.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      'images/off_splash.jpg',
-                      fit: BoxFit.cover,
+
+                    const SizedBox(height: 40),
+
+                    Text(
+                      AppLocalizations.of(context)!.welcomeText,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: isWeb ? 24 : 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
+
+                    const SizedBox(height: 50),
+
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/form');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 18),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: Text(
+                          AppLocalizations.of(context)!.start,
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-
-              const SizedBox(height: 40),
-
-              Text(
-                AppLocalizations.of(context)!.welcomeText,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-
-              const SizedBox(height: 50),
-
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/form');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 18),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  child: Text(
-                    AppLocalizations.of(context)!.start,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-// import 'package:flutter/material.dart';
-
-// class WelcomeScreen extends StatefulWidget {
-//   const WelcomeScreen({super.key});
-
-//   @override
-//   State<WelcomeScreen> createState() => _WelcomeScreenState();
-// }
-
-// class _WelcomeScreenState extends State<WelcomeScreen>
-//     with SingleTickerProviderStateMixin {
-//   late AnimationController _controller;
-//   late Animation<double> _scaleAnimation;
-
-//   @override
-//   void initState() {
-//     super.initState();
-
-//     _controller = AnimationController(
-//       vsync: this,
-//       duration: const Duration(milliseconds: 800),
-//     );
-
-//     _scaleAnimation = Tween<double>(
-//       begin: 0.8,
-//       end: 1.2,
-//     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
-
-//     _controller.addStatusListener((status) {
-//       if (status == AnimationStatus.completed) {
-//         _controller.reverse();
-//       } else if (status == AnimationStatus.dismissed) {
-//         _controller.forward();
-//       }
-//     });
-
-//     _controller.forward();
-//   }
-
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final size = MediaQuery.of(context).size.width * 0.35;
-
-//     return Scaffold(
-//       backgroundColor: const Color(0xFFF5F7FB),
-//       body: SafeArea(
-//         child: SingleChildScrollView(
-//           child: Padding(
-//             padding: const EdgeInsets.all(24),
-//             child: Column(
-//               children: [
-//                 const SizedBox(height: 80),
-
-//                 // 🔹 Animated Circle with Image (App Icon)
-//                 ScaleTransition(
-//                   scale: _scaleAnimation,
-//                   child: Container(
-//                     height: size,
-//                     width: size,
-//                     decoration: const BoxDecoration(
-//                       shape: BoxShape.circle,
-//                       gradient: LinearGradient(
-//                         colors: [Color(0xFF2563EB), Color(0xFF3B82F6)],
-//                       ),
-//                       boxShadow: [
-//                         BoxShadow(
-//                           color: Colors.black26,
-//                           blurRadius: 8,
-//                           offset: Offset(2, 4),
-//                         ),
-//                       ],
-//                     ),
-//                     child: ClipRRect(
-//                       borderRadius: BorderRadius.circular(size / 2),
-//                       child: Image.asset(
-//                         'images/splash.png', // ⚡ ضع هنا image app icon
-//                         fit: BoxFit.cover,
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-
-//                 const SizedBox(height: 40),
-
-//                 const Text(
-//                   "Get your workout & meal plan in seconds 💪🔥",
-//                   textAlign: TextAlign.center,
-//                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-//                 ),
-
-//                 const SizedBox(height: 60),
-
-//                 SizedBox(
-//                   width: double.infinity,
-//                   child: ElevatedButton(
-//                     onPressed: () {
-//                       Navigator.pushNamed(context, '/form');
-//                     },
-//                     style: ElevatedButton.styleFrom(
-//                       padding: const EdgeInsets.symmetric(vertical: 18),
-//                       shape: RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(16),
-//                       ),
-//                       backgroundColor: const Color(0xFF2563EB),
-//                       elevation: 6,
-//                     ),
-//                     child: const Text("Start", style: TextStyle(fontSize: 20)),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

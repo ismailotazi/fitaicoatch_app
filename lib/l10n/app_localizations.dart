@@ -308,7 +308,7 @@ abstract class AppLocalizations {
   /// No description provided for @hipThrustDesc.
   ///
   /// In en, this message translates to:
-  /// **'Glute activation exercise for strength and growth'**
+  /// **'An effective exercise to activate and strengthen the glutes, helping improve strength, build muscle, and reduce the risk of injury.'**
   String get hipThrustDesc;
 
   /// No description provided for @gluteBridge.
@@ -320,7 +320,7 @@ abstract class AppLocalizations {
   /// No description provided for @gluteBridgeDesc.
   ///
   /// In en, this message translates to:
-  /// **'Targets glutes and hamstrings effectively'**
+  /// **'An effective exercise to strengthen the glutes and hamstrings, improving stability, enhancing strength, and reducing the risk of injury.'**
   String get gluteBridgeDesc;
 
   /// No description provided for @cableKickbacks.
@@ -332,7 +332,7 @@ abstract class AppLocalizations {
   /// No description provided for @cableKickbacksDesc.
   ///
   /// In en, this message translates to:
-  /// **'Isolates glutes for shaping and toning'**
+  /// **'An isolation exercise that targets the glutes, helping improve shape, tone, and muscle definition.'**
   String get cableKickbacksDesc;
 
   /// No description provided for @bulgarianSplitSquat.
@@ -344,7 +344,7 @@ abstract class AppLocalizations {
   /// No description provided for @bulgarianSplitSquatDesc.
   ///
   /// In en, this message translates to:
-  /// **'Single-leg strength and balance exercise'**
+  /// **'A single-leg strength and balance exercise that builds leg strength, stability, and muscle symmetry.'**
   String get bulgarianSplitSquatDesc;
 
   /// No description provided for @stepUps.
@@ -356,7 +356,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepUpsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Functional lower body strength movement'**
+  /// **'A functional lower body exercise that improves strength, balance, and overall movement performance.'**
   String get stepUpsDesc;
 
   /// No description provided for @abductionMachine.
@@ -368,7 +368,7 @@ abstract class AppLocalizations {
   /// No description provided for @abductionMachineDesc.
   ///
   /// In en, this message translates to:
-  /// **'Targets outer glutes and hips'**
+  /// **'Targets the outer glutes and hips, helping improve shape, stability, and lower body strength.'**
   String get abductionMachineDesc;
 
   /// No description provided for @latPulldown.
@@ -380,7 +380,7 @@ abstract class AppLocalizations {
   /// No description provided for @latPulldownDesc.
   ///
   /// In en, this message translates to:
-  /// **'Back exercise for width and strength'**
+  /// **'A back exercise that builds width and strength, improving upper body shape and overall pulling power.'**
   String get latPulldownDesc;
 
   /// No description provided for @dumbbellRow.
@@ -392,7 +392,7 @@ abstract class AppLocalizations {
   /// No description provided for @dumbbellRowDesc.
   ///
   /// In en, this message translates to:
-  /// **'Builds mid-back thickness and strength'**
+  /// **'Builds mid-back thickness and strength, improving posture and overall back development.'**
   String get dumbbellRowDesc;
 
   /// No description provided for @shoulderPress.
@@ -404,7 +404,7 @@ abstract class AppLocalizations {
   /// No description provided for @shoulderPressDesc.
   ///
   /// In en, this message translates to:
-  /// **'Overhead press for shoulder development'**
+  /// **'An overhead pressing exercise that builds shoulder strength, size, and overall upper body development.'**
   String get shoulderPressDesc;
 
   /// No description provided for @lateralRaise.
@@ -416,7 +416,7 @@ abstract class AppLocalizations {
   /// No description provided for @lateralRaiseDesc.
   ///
   /// In en, this message translates to:
-  /// **'Isolates side delts for width'**
+  /// **'An isolation exercise targeting the side delts, helping improve shoulder width and upper body aesthetics.'**
   String get lateralRaiseDesc;
 
   /// No description provided for @tricepPushdown.
@@ -428,7 +428,7 @@ abstract class AppLocalizations {
   /// No description provided for @tricepPushdownDesc.
   ///
   /// In en, this message translates to:
-  /// **'Isolation exercise for triceps'**
+  /// **'An isolation exercise targeting the triceps, helping build arm strength and definition.'**
   String get tricepPushdownDesc;
 
   /// No description provided for @bicepCurl.
@@ -440,7 +440,7 @@ abstract class AppLocalizations {
   /// No description provided for @bicepCurlDesc.
   ///
   /// In en, this message translates to:
-  /// **'Arm exercise for biceps growth'**
+  /// **'An arm exercise that targets the biceps, helping increase muscle size, strength, and definition.'**
   String get bicepCurlDesc;
 
   /// No description provided for @squats.
@@ -452,7 +452,7 @@ abstract class AppLocalizations {
   /// No description provided for @squatsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Compound leg exercise for strength'**
+  /// **'A compound lower body exercise that builds strength, muscle mass, and overall athletic performance.'**
   String get squatsDesc;
 
   /// No description provided for @legPress.
@@ -464,7 +464,7 @@ abstract class AppLocalizations {
   /// No description provided for @legPressDesc.
   ///
   /// In en, this message translates to:
-  /// **'Machine-based leg strength exercise'**
+  /// **'A machine-based lower body exercise that builds leg strength and muscle mass in a controlled way.'**
   String get legPressDesc;
 
   /// No description provided for @romanianDeadlift.
@@ -476,7 +476,7 @@ abstract class AppLocalizations {
   /// No description provided for @romanianDeadliftDesc.
   ///
   /// In en, this message translates to:
-  /// **'Hamstring and glute strength builder'**
+  /// **'A powerful exercise targeting the hamstrings and glutes, improving strength and muscle balance.'**
   String get romanianDeadliftDesc;
 
   /// No description provided for @legCurl.
@@ -488,7 +488,7 @@ abstract class AppLocalizations {
   /// No description provided for @legCurlDesc.
   ///
   /// In en, this message translates to:
-  /// **'Isolates hamstrings'**
+  /// **'An isolation exercise that targets the hamstrings, improving strength and muscle performance.'**
   String get legCurlDesc;
 
   /// No description provided for @legExtension.
@@ -500,7 +500,7 @@ abstract class AppLocalizations {
   /// No description provided for @legExtensionDesc.
   ///
   /// In en, this message translates to:
-  /// **'Isolates quadriceps'**
+  /// **'An isolation exercise targeting the quadriceps, helping build strength and muscle definition.'**
   String get legExtensionDesc;
 
   /// No description provided for @calfRaises.
@@ -512,7 +512,7 @@ abstract class AppLocalizations {
   /// No description provided for @calfRaisesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Strengthens calf muscles'**
+  /// **'Strengthens the calf muscles, improving lower leg strength and stability.'**
   String get calfRaisesDesc;
 
   /// No description provided for @plank.
@@ -524,7 +524,7 @@ abstract class AppLocalizations {
   /// No description provided for @plankDesc.
   ///
   /// In en, this message translates to:
-  /// **'Core stability and endurance'**
+  /// **'A core exercise that builds stability, improves balance, and increases muscular endurance.'**
   String get plankDesc;
 
   /// No description provided for @russianTwists.
@@ -536,7 +536,7 @@ abstract class AppLocalizations {
   /// No description provided for @russianTwistsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Core rotation exercise'**
+  /// **'A core rotation exercise that strengthens the abdominal muscles and improves control and stability.'**
   String get russianTwistsDesc;
 
   /// No description provided for @mountainClimbers.
@@ -548,7 +548,7 @@ abstract class AppLocalizations {
   /// No description provided for @mountainClimbersDesc.
   ///
   /// In en, this message translates to:
-  /// **'Cardio and core workout'**
+  /// **'A dynamic full-body exercise that combines cardio and core training to improve endurance and burn calories.'**
   String get mountainClimbersDesc;
 
   /// No description provided for @jumpRope.
@@ -560,7 +560,7 @@ abstract class AppLocalizations {
   /// No description provided for @jumpRopeDesc.
   ///
   /// In en, this message translates to:
-  /// **'High intensity cardio exercise'**
+  /// **'A high-intensity cardio exercise that boosts endurance, coordination, and calorie burning.'**
   String get jumpRopeDesc;
 
   /// No description provided for @treadmill.
@@ -572,7 +572,7 @@ abstract class AppLocalizations {
   /// No description provided for @treadmillDesc.
   ///
   /// In en, this message translates to:
-  /// **'Cardio training for fat loss'**
+  /// **'An effective cardio workout for fat loss, improving heart health and overall fitness.'**
   String get treadmillDesc;
 
   /// No description provided for @walking.
@@ -584,7 +584,7 @@ abstract class AppLocalizations {
   /// No description provided for @walkingDesc.
   ///
   /// In en, this message translates to:
-  /// **'Light cardio recovery activity'**
+  /// **'A light recovery activity that improves blood circulation and supports active recovery.'**
   String get walkingDesc;
 
   /// No description provided for @stretching.
@@ -596,7 +596,7 @@ abstract class AppLocalizations {
   /// No description provided for @stretchingDesc.
   ///
   /// In en, this message translates to:
-  /// **'Improves flexibility and recovery'**
+  /// **'Exercises that improve flexibility, reduce muscle tension, and support recovery.'**
   String get stretchingDesc;
 
   /// No description provided for @yoga.
@@ -608,7 +608,7 @@ abstract class AppLocalizations {
   /// No description provided for @yogaDesc.
   ///
   /// In en, this message translates to:
-  /// **'Flexibility and mental relaxation'**
+  /// **'A practice combining flexibility, breathing, and relaxation to improve both physical and mental well-being.'**
   String get yogaDesc;
 
   /// No description provided for @benchPress.
@@ -620,7 +620,7 @@ abstract class AppLocalizations {
   /// No description provided for @benchPressDesc.
   ///
   /// In en, this message translates to:
-  /// **'Chest strength and muscle building'**
+  /// **'A fundamental upper body exercise that builds chest strength, muscle mass, and pushing power.'**
   String get benchPressDesc;
 
   /// No description provided for @inclineDumbbellPress.
@@ -632,7 +632,7 @@ abstract class AppLocalizations {
   /// No description provided for @inclineDumbbellPressDesc.
   ///
   /// In en, this message translates to:
-  /// **'Upper chest development exercise'**
+  /// **'An upper chest exercise that helps build strength, size, and muscle balance.'**
   String get inclineDumbbellPressDesc;
 
   /// No description provided for @chestFly.
@@ -644,7 +644,7 @@ abstract class AppLocalizations {
   /// No description provided for @chestFlyDesc.
   ///
   /// In en, this message translates to:
-  /// **'Chest isolation for muscle definition'**
+  /// **'An isolation exercise that targets the chest muscles for better definition and shape.'**
   String get chestFlyDesc;
 
   /// No description provided for @cableCrossover.
@@ -656,7 +656,7 @@ abstract class AppLocalizations {
   /// No description provided for @cableCrossoverDesc.
   ///
   /// In en, this message translates to:
-  /// **'Chest shaping and contraction'**
+  /// **'A chest exercise focused on muscle contraction and shaping for better definition.'**
   String get cableCrossoverDesc;
 
   /// No description provided for @pushUps.
@@ -668,7 +668,7 @@ abstract class AppLocalizations {
   /// No description provided for @pushUpsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Bodyweight chest and triceps exercise'**
+  /// **'A bodyweight exercise that strengthens the chest, triceps, and shoulders.'**
   String get pushUpsDesc;
 
   /// No description provided for @dips.
@@ -680,7 +680,7 @@ abstract class AppLocalizations {
   /// No description provided for @dipsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Upper body pushing strength'**
+  /// **'A powerful upper body exercise that builds pushing strength in chest and triceps.'**
   String get dipsDesc;
 
   /// No description provided for @pullUps.
@@ -692,7 +692,7 @@ abstract class AppLocalizations {
   /// No description provided for @pullUpsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Upper back and lat strength'**
+  /// **'A powerful upper body exercise that builds back and lat strength.'**
   String get pullUpsDesc;
 
   /// No description provided for @barbellRow.
@@ -704,7 +704,7 @@ abstract class AppLocalizations {
   /// No description provided for @barbellRowDesc.
   ///
   /// In en, this message translates to:
-  /// **'Back thickness compound movement'**
+  /// **'A compound movement that builds back thickness and overall strength.'**
   String get barbellRowDesc;
 
   /// No description provided for @seatedRow.
@@ -716,7 +716,7 @@ abstract class AppLocalizations {
   /// No description provided for @seatedRowDesc.
   ///
   /// In en, this message translates to:
-  /// **'Mid-back strength and posture'**
+  /// **'An exercise that improves mid-back strength and posture.'**
   String get seatedRowDesc;
 
   /// No description provided for @facePull.
@@ -728,7 +728,7 @@ abstract class AppLocalizations {
   /// No description provided for @facePullDesc.
   ///
   /// In en, this message translates to:
-  /// **'Rear delt and shoulder health'**
+  /// **'An exercise for rear delts and shoulder health and stability.'**
   String get facePullDesc;
 
   /// No description provided for @deadlift.
@@ -740,7 +740,7 @@ abstract class AppLocalizations {
   /// No description provided for @deadliftDesc.
   ///
   /// In en, this message translates to:
-  /// **'Full body strength movement'**
+  /// **'A full-body strength movement that builds power and muscle mass.'**
   String get deadliftDesc;
 
   /// No description provided for @lunges.
@@ -752,7 +752,7 @@ abstract class AppLocalizations {
   /// No description provided for @lungesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Leg strength and balance exercise'**
+  /// **'A lower body exercise that builds leg strength, balance, and coordination.'**
   String get lungesDesc;
 
   /// No description provided for @frontRaise.
@@ -764,7 +764,7 @@ abstract class AppLocalizations {
   /// No description provided for @frontRaiseDesc.
   ///
   /// In en, this message translates to:
-  /// **'Front shoulder isolation'**
+  /// **'An isolation exercise that targets the front shoulder muscles.'**
   String get frontRaiseDesc;
 
   /// No description provided for @reverseFly.
@@ -776,7 +776,7 @@ abstract class AppLocalizations {
   /// No description provided for @reverseFlyDesc.
   ///
   /// In en, this message translates to:
-  /// **'Rear delt development'**
+  /// **'An exercise that develops the rear delts and improves shoulder posture.'**
   String get reverseFlyDesc;
 
   /// No description provided for @shrugs.
@@ -788,7 +788,7 @@ abstract class AppLocalizations {
   /// No description provided for @shrugsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Trapezius muscle building'**
+  /// **'An exercise that strengthens and builds the trapezius muscles.'**
   String get shrugsDesc;
 
   /// No description provided for @barbellCurl.
@@ -800,7 +800,7 @@ abstract class AppLocalizations {
   /// No description provided for @barbellCurlDesc.
   ///
   /// In en, this message translates to:
-  /// **'Biceps strength exercise'**
+  /// **'A strength exercise that builds biceps size and power.'**
   String get barbellCurlDesc;
 
   /// No description provided for @hammerCurl.
@@ -812,7 +812,7 @@ abstract class AppLocalizations {
   /// No description provided for @hammerCurlDesc.
   ///
   /// In en, this message translates to:
-  /// **'Biceps and forearm development'**
+  /// **'An exercise that develops biceps and forearm strength.'**
   String get hammerCurlDesc;
 
   /// No description provided for @skullCrushers.
@@ -824,7 +824,7 @@ abstract class AppLocalizations {
   /// No description provided for @skullCrushersDesc.
   ///
   /// In en, this message translates to:
-  /// **'Triceps isolation exercise'**
+  /// **'An isolation exercise that targets and strengthens the triceps.'**
   String get skullCrushersDesc;
 
   /// No description provided for @fullBodyCircuit.
@@ -836,7 +836,7 @@ abstract class AppLocalizations {
   /// No description provided for @fullBodyCircuitDesc.
   ///
   /// In en, this message translates to:
-  /// **'Fat burning full body workout'**
+  /// **'A high-intensity workout designed to burn fat and train the entire body.'**
   String get fullBodyCircuitDesc;
 
   /// No description provided for @monday.
