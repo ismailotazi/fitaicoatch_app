@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fitaicoatch_app/l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'screens/welcome_screen.dart';
 import 'screens/form_screen.dart';
@@ -25,13 +26,40 @@ class _MyAppState extends State<MyApp> {
   Locale _locale = const Locale('en');
   ThemeMode _themeMode = ThemeMode.light;
 
-  void setLocale(Locale locale) {
+  @override
+  void initState() {
+    super.initState();
+    _loadSettings();
+  }
+
+  /// 🔥 LOAD SAVED SETTINGS
+  Future<void> _loadSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final lang = prefs.getString('language') ?? 'en';
+    final theme = prefs.getString('theme') ?? 'light';
+
+    setState(() {
+      _locale = Locale(lang);
+      _themeMode = theme == 'dark' ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
+
+  /// 🌍 SET LANGUAGE + SAVE
+  Future<void> setLocale(Locale locale) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('language', locale.languageCode);
+
     setState(() {
       _locale = locale;
     });
   }
 
-  void setThemeMode(ThemeMode mode) {
+  /// 🌙 SET THEME + SAVE
+  Future<void> setThemeMode(ThemeMode mode) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('theme', mode.name);
+
     setState(() {
       _themeMode = mode;
     });
@@ -56,7 +84,7 @@ class _MyAppState extends State<MyApp> {
         return supportedLocales.first;
       },
 
-      // 🌞 LIGHT THEME (PROFESSIONAL)
+      // 🌞 LIGHT THEME
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: const Color(0xFF2563EB),
@@ -80,7 +108,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
 
-      // 🌙 DARK THEME (PROFESSIONAL)
+      // 🌙 DARK THEME
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFF0F172A),
@@ -111,7 +139,7 @@ class _MyAppState extends State<MyApp> {
 
       supportedLocales: const [Locale('en'), Locale('ar')],
 
-      // 🔥 RTL SUPPORT (IMPORTANT)
+      // 🔥 RTL SUPPORT
       builder: (context, child) {
         return Directionality(
           textDirection: _locale.languageCode == 'ar'

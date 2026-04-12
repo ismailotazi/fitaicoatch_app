@@ -106,7 +106,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     return AppBar(
       elevation: 0,
       title: const Text(
-        "Fit AI Coach",
+        "Milo Gym Coach",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       actions: [
@@ -161,7 +161,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
-                    child: Image.asset('images/splash.png', fit: BoxFit.cover),
+                    child: Image.asset(
+                      'images/off_splash.jpg',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

@@ -9,7 +9,7 @@ class ProgramGenerator {
     required AppLocalizations t,
   }) {
     /// 🔴 FEMALE PRO
-    if (gender == 'Female') {
+    if (gender.toLowerCase().trim() == 'female') {
       return {
         t.day1: [
           {

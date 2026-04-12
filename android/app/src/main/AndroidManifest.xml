@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="fitaicoatch_app"
+        android:label="Milo Gym Coach"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
