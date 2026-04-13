@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'FitAI Coach',
+      title: 'Milo Gym Coach',
 
       locale: _locale,
       themeMode: _themeMode,
