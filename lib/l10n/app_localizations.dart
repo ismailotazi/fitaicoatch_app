@@ -1006,6 +1006,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Oats with milk and fruits'**
   String get oatsMilkFruits;
+
+  /// No description provided for @calorieTracker.
+  ///
+  /// In en, this message translates to:
+  /// **'Calorie Tracker'**
+  String get calorieTracker;
+
+  /// No description provided for @addMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Meal'**
+  String get addMeal;
+
+  /// No description provided for @meal.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal'**
+  String get meal;
+
+  /// No description provided for @calories.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories'**
+  String get calories;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @onTrack.
+  ///
+  /// In en, this message translates to:
+  /// **'On Track'**
+  String get onTrack;
+
+  /// No description provided for @exceeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Exceeded'**
+  String get exceeded;
+
+  /// No description provided for @kcal.
+  ///
+  /// In en, this message translates to:
+  /// **'kcal'**
+  String get kcal;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

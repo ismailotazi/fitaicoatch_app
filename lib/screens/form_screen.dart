@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitaicoatch_app/l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -17,6 +18,36 @@ class _FormScreenState extends State<FormScreen> {
   String _goal = 'Bulking';
   String _gender = 'Male';
   String _planType = 'Workout';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      _weightController.text = prefs.getString("weight") ?? "";
+      _heightController.text = prefs.getString("height") ?? "";
+
+      _gender = prefs.getString("gender") ?? "Male";
+      _goal = prefs.getString("goal") ?? "Bulking";
+      _planType = prefs.getString("planType") ?? "Workout";
+    });
+  }
+
+  Future<void> _saveUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString("weight", _weightController.text);
+    await prefs.setString("height", _heightController.text);
+
+    await prefs.setString("gender", _gender);
+    await prefs.setString("goal", _goal);
+    await prefs.setString("planType", _planType);
+  }
 
   @override
   void dispose() {
@@ -133,8 +164,10 @@ class _FormScreenState extends State<FormScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
+                      await _saveUserData();
+
                       Navigator.pushNamed(
                         context,
                         '/loading',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitaicoatch_app/l10n/app_localizations.dart';
+import 'package:fitaicoatch_app/screens/calorie_home_page.dart';
 import '../services/meal_generator.dart';
 
 class MealScreen extends StatefulWidget {
@@ -110,6 +111,7 @@ class _MealScreenState extends State<MealScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
+      // 🔥 APP BAR UPDATED (ONLY ADDITION)
       appBar: AppBar(
         title: Text(
           selectedDay == 'Sunday'
@@ -118,6 +120,27 @@ class _MealScreenState extends State<MealScreen> {
         ),
 
         actions: [
+          // 🔥 CALORIE ICON BUTTON
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+              icon: const Icon(
+                Icons.local_fire_department,
+                color: Colors.orange,
+                size: 28,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const CalorieHomePage(goalCalories: 2000),
+                  ),
+                );
+              },
+            ),
+          ),
+
+          // 👤 GENDER CHIP (UNCHANGED)
           Padding(
             padding: const EdgeInsets.all(12),
             child: Chip(
@@ -131,6 +154,7 @@ class _MealScreenState extends State<MealScreen> {
           ),
         ],
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

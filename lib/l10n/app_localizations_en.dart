@@ -463,4 +463,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get oatsMilkFruits => 'Oats with milk and fruits';
+
+  @override
+  String get calorieTracker => 'Calorie Tracker';
+
+  @override
+  String get addMeal => 'Add Meal';
+
+  @override
+  String get meal => 'Meal';
+
+  @override
+  String get calories => 'Calories';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get onTrack => 'On Track';
+
+  @override
+  String get exceeded => 'Exceeded';
+
+  @override
+  String get kcal => 'kcal';
 }

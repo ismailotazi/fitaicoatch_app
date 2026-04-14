@@ -463,4 +463,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get oatsMilkFruits => 'شوفان مع الحليب والفواكه';
+
+  @override
+  String get calorieTracker => 'متتبع السعرات';
+
+  @override
+  String get addMeal => 'إضافة وجبة';
+
+  @override
+  String get meal => 'وجبة';
+
+  @override
+  String get calories => 'سعرات حرارية';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get onTrack => 'في المسار';
+
+  @override
+  String get exceeded => 'تم تجاوز الهدف';
+
+  @override
+  String get kcal => 'سعرة';
 }

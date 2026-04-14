@@ -182,5 +182,13 @@
   "iceCream": "Ice Cream",
   "pizzaSalad": "Pizza & Salad",
   "almonds": "Almonds",
-  "oatsMilkFruits": "Oats with milk and fruits"
+  "oatsMilkFruits": "Oats with milk and fruits",
+    "calorieTracker": "Calorie Tracker",
+  "addMeal": "Add Meal",
+  "meal": "Meal",
+  "calories": "Calories",
+  "save": "Save",
+  "onTrack": "On Track",
+  "exceeded": "Exceeded",
+  "kcal": "kcal"
 }

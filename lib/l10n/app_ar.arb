@@ -199,5 +199,14 @@
   "iceCream": "بوظة",
   "pizzaSalad": "بيتزا مع سلطة",
   "almonds": "لوز",
-  "oatsMilkFruits": "شوفان مع الحليب والفواكه"
+  "oatsMilkFruits": "شوفان مع الحليب والفواكه",
+    "calorieTracker": "متتبع السعرات",
+  "addMeal": "إضافة وجبة",
+  "meal": "وجبة",
+  "calories": "سعرات حرارية",
+  "save": "حفظ",
+  "onTrack": "في المسار",
+  "exceeded": "تم تجاوز الهدف",
+  "kcal": "سعرة"
+
 }
