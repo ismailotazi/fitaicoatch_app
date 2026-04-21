@@ -1,4 +1,4 @@
-package com.example.fitaicoatch_app
+package com.milogym.app
 
 import io.flutter.embedding.android.FlutterActivity
 

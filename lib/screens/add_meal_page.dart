@@ -39,11 +39,20 @@ class _AddMealPageState extends State<AddMealPage> {
 
   @override
   Widget build(BuildContext context) {
-    // 🎨 SAME COLORS
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    // 🎨 COLORS (LIGHT + DARK)
     final primaryColor = const Color(0xFF2F5FD0);
-    final bgColor = const Color(0xFFF2F2F2);
-    final cardColor = const Color(0xFFE6E0EC);
-    final textColor = const Color(0xFF333333);
+
+    final bgColor = isDark ? const Color(0xFF0F0F10) : const Color(0xFFF2F2F2);
+
+    final cardColor = isDark
+        ? const Color(0xFF1A1A1D)
+        : const Color(0xFFE6E0EC);
+
+    final textColor = isDark ? Colors.white : const Color(0xFF333333);
+
+    final shadowColor = Colors.black.withOpacity(isDark ? 0.25 : 0.05);
 
     return Scaffold(
       appBar: AppBar(
@@ -61,12 +70,7 @@ class _AddMealPageState extends State<AddMealPage> {
                 decoration: BoxDecoration(
                   color: cardColor,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
-                      blurRadius: 10,
-                    ),
-                  ],
+                  boxShadow: [BoxShadow(color: shadowColor, blurRadius: 10)],
                 ),
                 child: TextField(
                   controller: nameController,
@@ -87,12 +91,7 @@ class _AddMealPageState extends State<AddMealPage> {
                 decoration: BoxDecoration(
                   color: cardColor,
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
-                      blurRadius: 10,
-                    ),
-                  ],
+                  boxShadow: [BoxShadow(color: shadowColor, blurRadius: 10)],
                 ),
                 child: TextField(
                   controller: caloriesController,
@@ -121,7 +120,10 @@ class _AddMealPageState extends State<AddMealPage> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                    child: const Text("Save", style: TextStyle(fontSize: 16)),
+                    child: Text(
+                      AppLocalizations.of(context)!.save,
+                      style: const TextStyle(fontSize: 16),
+                    ),
                   ),
                 ),
               ),
