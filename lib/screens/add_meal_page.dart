@@ -25,16 +25,76 @@ class _AddMealPageState extends State<AddMealPage> {
   }
 
   void save() {
-    if (caloriesController.text.isEmpty) return;
+    final t = AppLocalizations.of(context)!;
 
-    Navigator.pop(
-      context,
-      Meal(
-        name: nameController.text,
-        calories: int.parse(caloriesController.text),
-        date: DateTime.now(),
+    // ❌ check empty fields
+    if (nameController.text.trim().isEmpty ||
+        caloriesController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          margin: const EdgeInsets.all(12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          backgroundColor: Colors.red.withOpacity(0.9),
+          content: Row(
+            children: [
+              const Icon(Icons.warning_amber_rounded, color: Colors.white),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  t.fillAllFields, // 👈 زيدها فـ localization
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+      return;
+    }
+
+    // ✅ success snackbar
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.all(12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        backgroundColor: Colors.green.withOpacity(0.9),
+        duration: const Duration(seconds: 2),
+        content: Row(
+          children: [
+            const Icon(Icons.check_circle, color: Colors.white),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                t.savedSuccessfully, // 👈 زيدها فـ localization
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
+
+    // ⏳ delay صغير باش user يشوف message
+    Future.delayed(const Duration(milliseconds: 600), () {
+      Navigator.pop(
+        context,
+        Meal(
+          name: nameController.text,
+          calories: int.parse(caloriesController.text),
+          date: DateTime.now(),
+        ),
+      );
+    });
   }
 
   @override

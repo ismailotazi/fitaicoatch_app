@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fitaicoatch_app/l10n/app_localizations.dart';
 import 'package:fitaicoatch_app/screens/calorie_home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/meal_generator.dart';
 
 class MealScreen extends StatefulWidget {
@@ -25,6 +26,83 @@ class _MealScreenState extends State<MealScreen> {
     weeklyMeals = MealGenerator().generateWeeklyMealPlan(
       goal: goal,
       gender: gender,
+    );
+  }
+
+  // 🔥 MOTIVATION MESSAGE
+  String getMealMessage(AppLocalizations t) {
+    final messages = [t.eatClean, t.stayConsistent];
+
+    messages.shuffle();
+    return messages.first;
+  }
+
+  Future<bool> isUnlocked(int dayIndex) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    if (dayIndex == 1) return true;
+
+    return prefs.getBool("meal_day_$dayIndex") ?? false;
+  }
+
+  // locked days
+  Future<bool> isMealUnlocked(int index) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // Day 1 always open
+    if (index == 0) return true;
+
+    return prefs.getBool("meal_day_${index + 1}") ?? false;
+  }
+
+  // finish day
+  Future<void> finishMealDay(String day) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final keys = weeklyMeals.keys.toList();
+    final index = keys.indexOf(day);
+
+    // unlock next day
+    if (index != -1 && index + 1 < keys.length) {
+      await prefs.setBool("meal_day_${index + 2}", true);
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(AppLocalizations.of(context)!.dayFinished)),
+    );
+
+    setState(() {});
+  }
+  // reset
+
+  Future<void> resetMealProgram() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // ❌ clear finished meals (if used elsewhere)
+    await prefs.remove('finished_meal_days');
+    await prefs.remove('finished_days');
+
+    // 🔒 close ALL days properly
+    final keys = weeklyMeals.keys.toList();
+
+    for (int i = 1; i <= keys.length; i++) {
+      await prefs.remove("meal_day_$i");
+    }
+
+    // 🔓 only Day 1 open
+    if (keys.isNotEmpty) {
+      await prefs.setBool("meal_day_1", true);
+    }
+
+    setState(() {
+      selectedDay = keys.isNotEmpty ? keys.first : 'Monday';
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        content: Text(AppLocalizations.of(context)!.programReset),
+      ),
     );
   }
 
@@ -110,17 +188,11 @@ class _MealScreenState extends State<MealScreen> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-
-      // 🔥 APP BAR UPDATED (ONLY ADDITION)
       appBar: AppBar(
-        title: Text(
-          selectedDay == 'Sunday'
-              ? AppLocalizations.of(context)!.cheatMeal
-              : AppLocalizations.of(context)!.mealPlan,
-        ),
+        title: Text(selectedDay == 'Sunday' ? t.cheatMeal : t.mealPlan),
 
         actions: [
-          // 🔥 CALORIE ICON BUTTON
+          // 🔥 CALORIE TRACKER
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
@@ -140,14 +212,12 @@ class _MealScreenState extends State<MealScreen> {
             ),
           ),
 
-          // 👤 GENDER CHIP (UNCHANGED)
+          // 👤 GENDER CHIP
           Padding(
             padding: const EdgeInsets.all(12),
             child: Chip(
               label: Text(
-                widget.data['gender'] == 'female'
-                    ? AppLocalizations.of(context)!.female
-                    : AppLocalizations.of(context)!.male,
+                widget.data['gender'] == 'female' ? t.female : t.male,
               ),
               backgroundColor: Theme.of(context).cardColor,
             ),
@@ -159,53 +229,99 @@ class _MealScreenState extends State<MealScreen> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            // 🔥 MESSAGE (NEW)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Text(
+                getMealMessage(t),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+
+            // DAYS
             SizedBox(
               height: 60,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: weeklyMeals.keys.map((day) {
-                  final isSelected = day == selectedDay;
+                children: weeklyMeals.keys.toList().asMap().entries.map((
+                  entry,
+                ) {
+                  final index = entry.key;
+                  final day = entry.value;
 
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedDay = day;
-                      });
-                    },
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.only(right: 10),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        color: isSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          if (isSelected)
-                            BoxShadow(
-                              color: Theme.of(
-                                context,
-                              ).colorScheme.primary.withOpacity(0.25),
-                              blurRadius: 10,
-                            ),
-                        ],
-                      ),
-                      child: Center(
-                        child: Text(
-                          tKey(day, t),
-                          style: TextStyle(
-                            color: isSelected
-                                ? Theme.of(context).colorScheme.onPrimary
-                                : Theme.of(context).textTheme.bodyMedium?.color,
-                            fontWeight: FontWeight.bold,
+                  return FutureBuilder<bool>(
+                    future: isMealUnlocked(index),
+                    builder: (context, snapshot) {
+                      final unlocked = snapshot.data ?? false;
+                      final isSelected = day == selectedDay;
+
+                      return GestureDetector(
+                        onTap: () {
+                          if (!unlocked) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                behavior: SnackBarBehavior.floating,
+                                margin: const EdgeInsets.all(12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                content: Text(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.completePreviousDay,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          setState(() {
+                            selectedDay = day;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          margin: const EdgeInsets.only(right: 10),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 12,
+                          ),
+                          decoration: BoxDecoration(
+                            color: !unlocked
+                                ? Colors.grey
+                                : isSelected
+                                ? Colors
+                                      .green // 🔥 selected + unlocked = green
+                                : Colors.green.withOpacity(
+                                    0.7,
+                                  ), // 🔥 unlocked = green
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            children: [
+                              if (!unlocked)
+                                const Icon(
+                                  Icons.lock,
+                                  size: 14,
+                                  color: Colors.white,
+                                ),
+                              if (!unlocked) const SizedBox(width: 5),
+
+                              Text(
+                                tKey(day, t),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   );
                 }).toList(),
               ),
@@ -213,85 +329,98 @@ class _MealScreenState extends State<MealScreen> {
 
             const SizedBox(height: 20),
 
+            // MEALS
             Expanded(
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 400),
-                transitionBuilder: (child, animation) {
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: const Offset(1, 0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: child,
+              child: ListView(
+                children: meals.keys.map((mealTime) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tKey(mealTime, t),
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      ...(meals[mealTime] ?? []).map((meal) {
+                        return Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          padding: const EdgeInsets.all(14),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.restaurant,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      tKey(meal['meal']!, t),
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(meal['cal']!),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ],
                   );
-                },
-                child: ListView(
-                  key: ValueKey(selectedDay),
-                  children: meals.keys.map((mealTime) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tKey(mealTime, t),
-                          style: Theme.of(context).textTheme.titleMedium
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
-
-                        const SizedBox(height: 10),
-
-                        ...(meals[mealTime] ?? []).map((meal) {
-                          return Container(
-                            margin: const EdgeInsets.only(bottom: 10),
-                            padding: const EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).cardColor,
-                              borderRadius: BorderRadius.circular(14),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.05),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.restaurant,
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        tKey(meal['meal']!, t),
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                      Text(
-                                        meal['cal']!,
-                                        style: Theme.of(
-                                          context,
-                                        ).textTheme.bodySmall,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        }),
-
-                        const SizedBox(height: 20),
-                      ],
-                    );
-                  }).toList(),
+                }).toList(),
+              ),
+            ),
+            if (weeklyMeals.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    onPressed: () {
+                      finishMealDay(selectedDay);
+                    },
+                    child: Text(AppLocalizations.of(context)!.finishDay),
+                  ),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.only(top: 1, bottom: 20),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueAccent, // 🔥 same style but red
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  onPressed: resetMealProgram,
+                  child: Text(
+                    AppLocalizations.of(context)!.programReset,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -301,3 +430,315 @@ class _MealScreenState extends State<MealScreen> {
     );
   }
 }
+// import 'package:flutter/material.dart';
+// import 'package:fitaicoatch_app/l10n/app_localizations.dart';
+// import 'package:fitaicoatch_app/screens/calorie_home_page.dart';
+// import '../services/meal_generator.dart';
+
+// class MealScreen extends StatefulWidget {
+//   final Map<String, String> data;
+//   const MealScreen({super.key, required this.data});
+
+//   @override
+//   State<MealScreen> createState() => _MealScreenState();
+// }
+
+// class _MealScreenState extends State<MealScreen> {
+//   String selectedDay = 'Monday';
+//   Map<String, Map<String, List<Map<String, String>>>> weeklyMeals = {};
+
+// String getMealMessage(AppLocalizations t) {
+//   final messages = [
+//     t.eatClean,
+//     t.stayConsistent,
+//   ];
+
+//   messages.shuffle();
+//   return messages.first;
+// }
+//   @override
+//   void initState() {
+//     super.initState();
+
+//     final goal = widget.data['goal'] ?? 'Fitness';
+//     final gender = (widget.data['gender'] ?? 'Male').toLowerCase();
+
+//     weeklyMeals = MealGenerator().generateWeeklyMealPlan(
+//       goal: goal,
+//       gender: gender,
+//     );
+//   }
+
+//   String tKey(String key, AppLocalizations t) {
+//     switch (key) {
+//       case 'Monday':
+//         return t.monday;
+//       case 'Tuesday':
+//         return t.tuesday;
+//       case 'Wednesday':
+//         return t.wednesday;
+//       case 'Thursday':
+//         return t.thursday;
+//       case 'Friday':
+//         return t.friday;
+//       case 'Saturday':
+//         return t.saturday;
+//       case 'Sunday':
+//         return t.sunday;
+
+//       case 'Breakfast':
+//         return t.breakfast;
+//       case 'Lunch':
+//         return t.lunch;
+//       case 'Snack':
+//         return t.snack;
+//       case 'Dinner':
+//         return t.dinner;
+
+//       case 'Meal Plan 🍽️':
+//         return t.mealPlan;
+
+//       case 'Cheat Meal 🍕':
+//         return t.cheatMeal;
+
+//       case 'chicken_rice':
+//         return t.chickenRice;
+//       case 'oatmeal_banana_pb':
+//         return t.oatmealBananaPb;
+//       case 'salmon_sweet_potato':
+//         return t.salmonSweetPotato;
+//       case 'eggs_toast':
+//         return t.eggsToast;
+//       case 'beef_quinoa':
+//         return t.beefQuinoa;
+//       case 'protein_shake':
+//         return t.proteinShake;
+//       case 'tuna_sweet_potato':
+//         return t.tunaSweetPotato;
+//       case 'greek_yogurt_nuts':
+//         return t.greekYogurtNuts;
+//       case 'almonds':
+//         return t.almonds;
+//       case 'turkey_quinoa':
+//         return t.turkeyQuinoa;
+//       case 'grilled_chicken_salad':
+//         return t.grilledChickenSalad;
+//       case 'tuna_salad':
+//         return t.tunaSalad;
+//       case 'yogurt_banana':
+//         return t.yogurtBanana;
+
+//       case 'pancakes_berries':
+//         return t.pancakesBerries;
+//       case 'burger_fries':
+//         return t.burgerFries;
+//       case 'ice_cream':
+//         return t.iceCream;
+//       case 'pizza_salad':
+//         return t.pizzaSalad;
+//       case 'oats_milk_fruits':
+//         return t.oatsMilkFruits;
+
+//       default:
+//         return key;
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final t = AppLocalizations.of(context)!;
+//     final meals = weeklyMeals[selectedDay] ?? {};
+
+//     return Scaffold(
+//       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+//       // 🔥 APP BAR UPDATED (ONLY ADDITION)
+//       appBar: AppBar(
+//         title: Text(
+//           selectedDay == 'Sunday'
+//               ? AppLocalizations.of(context)!.cheatMeal
+//               : AppLocalizations.of(context)!.mealPlan,
+//         ),
+
+//         actions: [
+//           // 🔥 CALORIE ICON BUTTON
+//           Padding(
+//             padding: const EdgeInsets.only(right: 8),
+//             child: IconButton(
+//               icon: const Icon(
+//                 Icons.local_fire_department,
+//                 color: Colors.orange,
+//                 size: 28,
+//               ),
+//               onPressed: () {
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                     builder: (_) => const CalorieHomePage(goalCalories: 2000),
+//                   ),
+//                 );
+//               },
+//             ),
+//           ),
+
+//           // 👤 GENDER CHIP (UNCHANGED)
+//           Padding(
+//             padding: const EdgeInsets.all(12),
+//             child: Chip(
+//               label: Text(
+//                 widget.data['gender'] == 'female'
+//                     ? AppLocalizations.of(context)!.female
+//                     : AppLocalizations.of(context)!.male,
+//               ),
+//               backgroundColor: Theme.of(context).cardColor,
+//             ),
+//           ),
+//         ],
+//       ),
+
+//       body: Padding(
+//         padding: const EdgeInsets.all(16),
+//         child: Column(
+//           children: [
+//             SizedBox(
+//               height: 60,
+//               child: ListView(
+//                 scrollDirection: Axis.horizontal,
+//                 children: weeklyMeals.keys.map((day) {
+//                   final isSelected = day == selectedDay;
+
+//                   return GestureDetector(
+//                     onTap: () {
+//                       setState(() {
+//                         selectedDay = day;
+//                       });
+//                     },
+//                     child: AnimatedContainer(
+//                       duration: const Duration(milliseconds: 300),
+//                       margin: const EdgeInsets.only(right: 10),
+//                       padding: const EdgeInsets.symmetric(
+//                         horizontal: 20,
+//                         vertical: 12,
+//                       ),
+//                       decoration: BoxDecoration(
+//                         color: isSelected
+//                             ? Theme.of(context).colorScheme.primary
+//                             : Theme.of(context).cardColor,
+//                         borderRadius: BorderRadius.circular(20),
+//                         boxShadow: [
+//                           if (isSelected)
+//                             BoxShadow(
+//                               color: Theme.of(
+//                                 context,
+//                               ).colorScheme.primary.withOpacity(0.25),
+//                               blurRadius: 10,
+//                             ),
+//                         ],
+//                       ),
+//                       child: Center(
+//                         child: Text(
+//                           tKey(day, t),
+//                           style: TextStyle(
+//                             color: isSelected
+//                                 ? Theme.of(context).colorScheme.onPrimary
+//                                 : Theme.of(context).textTheme.bodyMedium?.color,
+//                             fontWeight: FontWeight.bold,
+//                           ),
+//                         ),
+//                       ),
+//                     ),
+//                   );
+//                 }).toList(),
+//               ),
+//             ),
+
+//             const SizedBox(height: 20),
+
+//             Expanded(
+//               child: AnimatedSwitcher(
+//                 duration: const Duration(milliseconds: 400),
+//                 transitionBuilder: (child, animation) {
+//                   return SlideTransition(
+//                     position: Tween<Offset>(
+//                       begin: const Offset(1, 0),
+//                       end: Offset.zero,
+//                     ).animate(animation),
+//                     child: child,
+//                   );
+//                 },
+//                 child: ListView(
+//                   key: ValueKey(selectedDay),
+//                   children: meals.keys.map((mealTime) {
+//                     return Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         Text(
+//                           tKey(mealTime, t),
+//                           style: Theme.of(context).textTheme.titleMedium
+//                               ?.copyWith(fontWeight: FontWeight.bold),
+//                         ),
+
+//                         const SizedBox(height: 10),
+
+//                         ...(meals[mealTime] ?? []).map((meal) {
+//                           return Container(
+//                             margin: const EdgeInsets.only(bottom: 10),
+//                             padding: const EdgeInsets.all(14),
+//                             decoration: BoxDecoration(
+//                               color: Theme.of(context).cardColor,
+//                               borderRadius: BorderRadius.circular(14),
+//                               boxShadow: [
+//                                 BoxShadow(
+//                                   color: Colors.black.withOpacity(0.05),
+//                                   blurRadius: 6,
+//                                 ),
+//                               ],
+//                             ),
+//                             child: Row(
+//                               children: [
+//                                 Icon(
+//                                   Icons.restaurant,
+//                                   color: Theme.of(context).colorScheme.primary,
+//                                 ),
+//                                 const SizedBox(width: 10),
+//                                 Expanded(
+//                                   child: Column(
+//                                     crossAxisAlignment:
+//                                         CrossAxisAlignment.start,
+//                                     children: [
+//                                       Text(
+//                                         tKey(meal['meal']!, t),
+//                                         style: Theme.of(context)
+//                                             .textTheme
+//                                             .bodyMedium
+//                                             ?.copyWith(
+//                                               fontWeight: FontWeight.bold,
+//                                             ),
+//                                       ),
+//                                       Text(
+//                                         meal['cal']!,
+//                                         style: Theme.of(
+//                                           context,
+//                                         ).textTheme.bodySmall,
+//                                       ),
+//                                     ],
+//                                   ),
+//                                 ),
+//                               ],
+//                             ),
+//                           );
+//                         }),
+
+//                         const SizedBox(height: 20),
+//                       ],
+//                     );
+//                   }).toList(),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

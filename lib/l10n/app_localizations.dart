@@ -200,7 +200,7 @@ abstract class AppLocalizations {
   /// No description provided for @workoutProgram.
   ///
   /// In en, this message translates to:
-  /// **'Workout Program 💪'**
+  /// **'Workout Program'**
   String get workoutProgram;
 
   /// No description provided for @noWorkoutProgram.
@@ -224,7 +224,7 @@ abstract class AppLocalizations {
   /// No description provided for @days.
   ///
   /// In en, this message translates to:
-  /// **'Days'**
+  /// **'days'**
   String get days;
 
   /// No description provided for @mealPlan.
@@ -1054,6 +1054,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'kcal'**
   String get kcal;
+
+  /// No description provided for @finishStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish strong 👑'**
+  String get finishStrong;
+
+  /// No description provided for @startStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Start strong 💪'**
+  String get startStrong;
+
+  /// No description provided for @keepGoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going 🔥'**
+  String get keepGoing;
+
+  /// No description provided for @streak.
+  ///
+  /// In en, this message translates to:
+  /// **'Streak'**
+  String get streak;
+
+  /// No description provided for @daysCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Days Completed'**
+  String get daysCompleted;
+
+  /// No description provided for @day.
+  ///
+  /// In en, this message translates to:
+  /// **'day'**
+  String get day;
+
+  /// No description provided for @finishDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish Day '**
+  String get finishDay;
+
+  /// No description provided for @dayFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'Day finished ✅'**
+  String get dayFinished;
+
+  /// No description provided for @programReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Programme réinitialisé 🔄'**
+  String get programReset;
+
+  /// No description provided for @eatClean.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat clean today 🍏'**
+  String get eatClean;
+
+  /// No description provided for @stayConsistent.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay consistent 🔥'**
+  String get stayConsistent;
+
+  /// No description provided for @dontForgetMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t forget your meal 🍽️'**
+  String get dontForgetMeal;
+
+  /// No description provided for @completePreviousDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish previous day first 🔒'**
+  String get completePreviousDay;
+
+  /// No description provided for @rateUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate Us ⭐'**
+  String get rateUs;
+
+  /// No description provided for @rateMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'If you enjoy the app, please take a moment to rate it 🙏'**
+  String get rateMessage;
+
+  /// No description provided for @rateNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate Now'**
+  String get rateNow;
+
+  /// No description provided for @later.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get later;
+
+  /// No description provided for @fillAllFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill all fields ⚠️'**
+  String get fillAllFields;
+
+  /// No description provided for @savedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal saved successfully ✅'**
+  String get savedSuccessfully;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

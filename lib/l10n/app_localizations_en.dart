@@ -60,7 +60,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get generateProgram => 'Generate Program';
 
   @override
-  String get workoutProgram => 'Workout Program 💪';
+  String get workoutProgram => 'Workout Program';
 
   @override
   String get noWorkoutProgram => 'No workout program available';
@@ -72,7 +72,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get watchVideo => 'Watch Video';
 
   @override
-  String get days => 'Days';
+  String get days => 'days';
 
   @override
   String get mealPlan => 'Meal Plan';
@@ -487,4 +487,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get kcal => 'kcal';
+
+  @override
+  String get finishStrong => 'Finish strong 👑';
+
+  @override
+  String get startStrong => 'Start strong 💪';
+
+  @override
+  String get keepGoing => 'Keep going 🔥';
+
+  @override
+  String get streak => 'Streak';
+
+  @override
+  String get daysCompleted => 'Days Completed';
+
+  @override
+  String get day => 'day';
+
+  @override
+  String get finishDay => 'Finish Day ';
+
+  @override
+  String get dayFinished => 'Day finished ✅';
+
+  @override
+  String get programReset => 'Programme réinitialisé 🔄';
+
+  @override
+  String get eatClean => 'Eat clean today 🍏';
+
+  @override
+  String get stayConsistent => 'Stay consistent 🔥';
+
+  @override
+  String get dontForgetMeal => 'Don’t forget your meal 🍽️';
+
+  @override
+  String get completePreviousDay => 'Finish previous day first 🔒';
+
+  @override
+  String get rateUs => 'Rate Us ⭐';
+
+  @override
+  String get rateMessage => 'If you enjoy the app, please take a moment to rate it 🙏';
+
+  @override
+  String get rateNow => 'Rate Now';
+
+  @override
+  String get later => 'Later';
+
+  @override
+  String get fillAllFields => 'Please fill all fields ⚠️';
+
+  @override
+  String get savedSuccessfully => 'Meal saved successfully ✅';
 }

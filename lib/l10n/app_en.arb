@@ -19,7 +19,7 @@
   "planType": "Plan Type",
   "generateProgram": "Generate Program",
 
-  "workoutProgram": "Workout Program 💪",
+  "workoutProgram": "Workout Program",
   "noWorkoutProgram": "No workout program available",
 
   "description": "Description",
@@ -190,5 +190,26 @@
   "save": "Save",
   "onTrack": "On Track",
   "exceeded": "Exceeded",
-  "kcal": "kcal"
+  "kcal": "kcal",
+    "finishStrong": "Finish strong 👑",
+  "startStrong": "Start strong 💪",
+  "keepGoing": "Keep going 🔥",
+  "streak": "Streak",
+  "daysCompleted": "Days Completed",
+  "day": "day",
+  "days": "days",
+  "finishDay": "Finish Day ",
+  "dayFinished": "Day finished ✅",
+  "programReset": "Programme réinitialisé 🔄",
+    "eatClean": "Eat clean today 🍏",
+  "stayConsistent": "Stay consistent 🔥",
+  "dontForgetMeal": "Don’t forget your meal 🍽️",
+  "completePreviousDay": "Finish previous day first 🔒",
+  "rateUs": "Rate Us ⭐",
+"rateMessage": "If you enjoy the app, please take a moment to rate it 🙏",
+"rateNow": "Rate Now",
+"later": "Later",
+"fillAllFields": "Please fill all fields ⚠️",
+"savedSuccessfully": "Meal saved successfully ✅"
+
 }

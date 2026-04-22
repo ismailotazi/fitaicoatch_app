@@ -19,7 +19,7 @@
   "planType": "نوع البرنامج",
   "generateProgram": "إنشاء البرنامج",
 
-  "workoutProgram": "برنامج التمارين 💪",
+  "workoutProgram": "برنامج التمارين",
   "noWorkoutProgram": "لا يوجد برنامج تدريبي",
 
   "description": "الوصف",
@@ -161,7 +161,7 @@
   "hammerCurl": "ثني المطرقة",
   "hammerCurlDesc": "تمرين يقوي عضلات البايسبس والساعد.",
 
-  "skullCrushers": "تمرين الترايسبس (Skull Crushers)",
+  "skullCrushers": "تمرين الترايسبس ",
   "skullCrushersDesc": "تمرين عزل يستهدف عضلات الترايسبس لتقويتها وزيادة حجمها.",
 
   "fullBodyCircuit": "تمرين دائري شامل",
@@ -207,6 +207,25 @@
   "save": "حفظ",
   "onTrack": "في المسار",
   "exceeded": "تم تجاوز الهدف",
-  "kcal": "سعرة"
-
+  "kcal": "سعرة",
+    "finishStrong": "أنهِ بقوة 👑",
+  "startStrong": "ابدأ بقوة 💪",
+  "keepGoing": "واصل 🔥",
+  "streak": "السلسلة",
+  "daysCompleted": "الأيام المكتملة",
+  "day": "يوم",
+  "days": "أيام",
+  "finishDay": "إنهاء اليوم",
+  "dayFinished": "تم إنهاء اليوم ✅",
+"programReset": "تم إعادة ضبط البرنامج 🔄",
+  "eatClean": "كل نظيف اليوم 🍏",
+  "stayConsistent": "واصل بثبات 🔥",
+  "dontForgetMeal": "لا تنسَ وجبتك اليوم 🍽️",
+  "completePreviousDay": "يرجى إنهاء اليوم السابق أولاً 🔒",
+  "rateUs": "قيم التطبيق ⭐",
+"rateMessage": "إذا أعجبك التطبيق، خذ لحظة لتقييمه 🙏",
+"rateNow": "قيّم الآن",
+"later": "لاحقاً",
+"fillAllFields": "يرجى ملء جميع الحقول ⚠️",
+"savedSuccessfully": "تم حفظ الوجبة بنجاح ✅"
 }

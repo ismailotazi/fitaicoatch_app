@@ -60,7 +60,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get generateProgram => 'إنشاء البرنامج';
 
   @override
-  String get workoutProgram => 'برنامج التمارين 💪';
+  String get workoutProgram => 'برنامج التمارين';
 
   @override
   String get noWorkoutProgram => 'لا يوجد برنامج تدريبي';
@@ -72,7 +72,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get watchVideo => 'شاهد الفيديو';
 
   @override
-  String get days => 'الأيام';
+  String get days => 'أيام';
 
   @override
   String get mealPlan => 'النظام الغذائي';
@@ -369,7 +369,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hammerCurlDesc => 'تمرين يقوي عضلات البايسبس والساعد.';
 
   @override
-  String get skullCrushers => 'تمرين الترايسبس (Skull Crushers)';
+  String get skullCrushers => 'تمرين الترايسبس ';
 
   @override
   String get skullCrushersDesc => 'تمرين عزل يستهدف عضلات الترايسبس لتقويتها وزيادة حجمها.';
@@ -487,4 +487,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get kcal => 'سعرة';
+
+  @override
+  String get finishStrong => 'أنهِ بقوة 👑';
+
+  @override
+  String get startStrong => 'ابدأ بقوة 💪';
+
+  @override
+  String get keepGoing => 'واصل 🔥';
+
+  @override
+  String get streak => 'السلسلة';
+
+  @override
+  String get daysCompleted => 'الأيام المكتملة';
+
+  @override
+  String get day => 'يوم';
+
+  @override
+  String get finishDay => 'إنهاء اليوم';
+
+  @override
+  String get dayFinished => 'تم إنهاء اليوم ✅';
+
+  @override
+  String get programReset => 'تم إعادة ضبط البرنامج 🔄';
+
+  @override
+  String get eatClean => 'كل نظيف اليوم 🍏';
+
+  @override
+  String get stayConsistent => 'واصل بثبات 🔥';
+
+  @override
+  String get dontForgetMeal => 'لا تنسَ وجبتك اليوم 🍽️';
+
+  @override
+  String get completePreviousDay => 'يرجى إنهاء اليوم السابق أولاً 🔒';
+
+  @override
+  String get rateUs => 'قيم التطبيق ⭐';
+
+  @override
+  String get rateMessage => 'إذا أعجبك التطبيق، خذ لحظة لتقييمه 🙏';
+
+  @override
+  String get rateNow => 'قيّم الآن';
+
+  @override
+  String get later => 'لاحقاً';
+
+  @override
+  String get fillAllFields => 'يرجى ملء جميع الحقول ⚠️';
+
+  @override
+  String get savedSuccessfully => 'تم حفظ الوجبة بنجاح ✅';
 }
