@@ -389,37 +389,45 @@ class _MealScreenState extends State<MealScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(18),
                       ),
+                      elevation: 3,
                     ),
                     onPressed: () {
                       finishMealDay(selectedDay);
                     },
-                    child: Text(AppLocalizations.of(context)!.finishDay),
+                    child: Text(
+                      AppLocalizations.of(context)!.finishDay,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
             Padding(
-              padding: const EdgeInsets.only(top: 1, bottom: 20),
+              padding: const EdgeInsets.only(top: 10, bottom: 20),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent, // 🔥 same style but red
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(18),
                     ),
+                    elevation: 3,
                   ),
                   onPressed: resetMealProgram,
                   child: Text(
                     AppLocalizations.of(context)!.programReset,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

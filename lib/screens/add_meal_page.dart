@@ -116,8 +116,11 @@ class _AddMealPageState extends State<AddMealPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.addMeal),
-        backgroundColor: primaryColor,
+        title: Text(
+          AppLocalizations.of(context)!.addMeal,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        centerTitle: true,
       ),
       body: Container(
         color: bgColor,
@@ -174,15 +177,20 @@ class _AddMealPageState extends State<AddMealPage> {
                   child: ElevatedButton(
                     onPressed: save,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(18),
                       ),
+                      elevation: 3,
                     ),
                     child: Text(
                       AppLocalizations.of(context)!.save,
-                      style: const TextStyle(fontSize: 16),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

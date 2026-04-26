@@ -50,42 +50,107 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   void _changeLanguageDialog() {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Theme.of(context).cardColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
       builder: (context) {
         return Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                "🌍 Language",
-                style: Theme.of(context).textTheme.titleMedium,
+              // Title
+              Row(
+                children: [
+                  const Icon(Icons.language, size: 26),
+                  const SizedBox(width: 10),
+                  Text(
+                    "Choose Language 🌍",
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
+
               const SizedBox(height: 20),
 
-              ListTile(
-                leading: const Text("🇬🇧", style: TextStyle(fontSize: 24)),
-                title: const Text("English"),
+              // English
+              _buildLanguageTile(
+                flag: "🇬🇧",
+                title: "English",
                 onTap: () {
                   MyApp.of(context)?.setLocale(const Locale('en'));
                   Navigator.pop(context);
                 },
               ),
 
-              ListTile(
-                leading: const Text("🇲🇦", style: TextStyle(fontSize: 24)),
-                title: const Text("العربية"),
+              const SizedBox(height: 10),
+
+              // Arabic
+              _buildLanguageTile(
+                flag: "🇲🇦",
+                title: "العربية",
                 onTap: () {
                   MyApp.of(context)?.setLocale(const Locale('ar'));
                   Navigator.pop(context);
                 },
               ),
+
+              const SizedBox(height: 10),
+
+              // French (NEW 🇫🇷)
+              _buildLanguageTile(
+                flag: "🇫🇷",
+                title: "Français",
+                onTap: () {
+                  final appState = MyApp.of(context);
+                  appState?.setLocale(const Locale('fr'));
+                  Navigator.pop(context);
+                },
+              ),
+
+              const SizedBox(height: 10),
             ],
           ),
         );
       },
+    );
+  }
+
+  // 🔥 reusable widget (design clean)
+  Widget _buildLanguageTile({
+    required String flag,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(15),
+      onTap: onTap,
+      child: Ink(
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(0.3),
+        ),
+        child: Row(
+          children: [
+            Text(flag, style: const TextStyle(fontSize: 26)),
+            const SizedBox(width: 15),
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const Icon(Icons.arrow_forward_ios, size: 16),
+          ],
+        ),
+      ),
     );
   }
 
@@ -207,14 +272,22 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                           Navigator.pushNamed(context, '/form');
                         },
                         style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 18),
+                          backgroundColor: Theme.of(
+                            context,
+                          ).colorScheme.primary,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(18),
                           ),
+                          elevation: 3,
                         ),
                         child: Text(
                           AppLocalizations.of(context)!.start,
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

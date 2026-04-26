@@ -12,6 +12,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen>
     with TickerProviderStateMixin {
   Map<String, String> data = {};
+
   late AnimationController _circleController;
   late Animation<double> _circleAnimation;
 
@@ -33,24 +34,25 @@ class _LoadingScreenState extends State<LoadingScreen>
   @override
   void initState() {
     super.initState();
+
     _circleController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
     );
 
-    _circleAnimation = Tween<double>(begin: 0.8, end: 1.2).animate(
+    _circleAnimation = Tween<double>(begin: 0.85, end: 1.1).animate(
       CurvedAnimation(parent: _circleController, curve: Curves.easeInOut),
     );
 
-    _circleController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _circleController.reverse();
-      } else if (status == AnimationStatus.dismissed) {
-        _circleController.forward();
-      }
-    });
-
-    _circleController.forward();
+    _circleController
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _circleController.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          _circleController.forward();
+        }
+      })
+      ..forward();
   }
 
   @override
@@ -64,72 +66,82 @@ class _LoadingScreenState extends State<LoadingScreen>
     final size = MediaQuery.of(context).size.width * 0.35;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ScaleTransition(
-              scale: _circleAnimation,
-              child: Container(
-                height: size,
-                width: size,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF2563EB), Color(0xFF3B82F6)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 12,
-                      offset: Offset(3, 4),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: Theme.of(context).brightness == Brightness.dark
+                ? [const Color(0xFF0F172A), const Color(0xFF111827)]
+                : [const Color(0xFFF8FAFC), const Color(0xFFFFFFFF)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ScaleTransition(
+                scale: _circleAnimation,
+                child: Container(
+                  height: size,
+                  width: size,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF2563EB), Color(0xFF3B82F6)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(size / 2),
-                  child: Image.asset(
-                    'images/off_splash.jpg',
-                    fit: BoxFit.cover,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 20,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(size / 2),
+                    child: Image.asset(
+                      'images/off_splash.jpg',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 40),
+              const SizedBox(height: 35),
 
-            SizedBox(
-              height: 20,
-              child: Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(3, (index) {
-                  return AnimatedDot(index: index);
-                }),
+                children: List.generate(
+                  3,
+                  (index) => AnimatedDot(index: index),
+                ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 25),
 
-            TweenAnimationBuilder(
-              tween: Tween<double>(begin: 0, end: 1),
-              duration: const Duration(seconds: 2),
-              builder: (context, double value, child) {
-                return Opacity(
-                  opacity: value,
-                  child: Text(
-                    AppLocalizations.of(context)!.preparingProgram,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+              TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: 1),
+                duration: const Duration(seconds: 1),
+                builder: (context, double value, child) {
+                  return Opacity(
+                    opacity: value,
+                    child: Text(
+                      AppLocalizations.of(context)!.preparingProgram,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.3,
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-          ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -159,7 +171,7 @@ class _AnimatedDotState extends State<AnimatedDot>
     );
 
     _animation = Tween<double>(
-      begin: 0.4,
+      begin: 0.3,
       end: 1,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
@@ -171,7 +183,7 @@ class _AnimatedDotState extends State<AnimatedDot>
       }
     });
 
-    Future.delayed(Duration(milliseconds: widget.index * 200), () {
+    Future.delayed(Duration(milliseconds: widget.index * 180), () {
       if (mounted) _controller.forward();
     });
   }
@@ -187,8 +199,8 @@ class _AnimatedDotState extends State<AnimatedDot>
     return FadeTransition(
       opacity: _animation,
       child: Container(
-        width: 12,
-        height: 12,
+        width: 10,
+        height: 10,
         margin: const EdgeInsets.symmetric(horizontal: 4),
         decoration: BoxDecoration(
           shape: BoxShape.circle,

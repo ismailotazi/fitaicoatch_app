@@ -28,7 +28,7 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         centerTitle: true,
 
@@ -39,7 +39,7 @@ class _ExerciseExampleScreenState extends State<ExerciseExampleScreen> {
         title: Text(
           widget.exercise['exercise'] ??
               AppLocalizations.of(context)!.workoutProgram,
-          style: Theme.of(context).textTheme.titleLarge,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
 

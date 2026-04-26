@@ -111,36 +111,19 @@ class _CalorieHomePageState extends State<CalorieHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.calorieTracker),
+        title: Text(
+          AppLocalizations.of(context)!.calorieTracker,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
         centerTitle: true,
-        backgroundColor: primaryColor,
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: SizedBox(
-          width: double.infinity,
-          child: ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: primaryColor,
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18),
-              ),
-              elevation: 4,
-            ),
-            onPressed: addMeal,
-            icon: const Icon(Icons.local_fire_department, color: Colors.white),
-            label: Text(
-              AppLocalizations.of(
-                context,
-              )!.addMeal, // أو دير key جديدة addCalories
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: addMeal,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        icon: const Icon(Icons.local_fire_department),
+        label: Text(
+          AppLocalizations.of(context)!.addMeal,
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

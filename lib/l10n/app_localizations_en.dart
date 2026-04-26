@@ -513,7 +513,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dayFinished => 'Day finished ✅';
 
   @override
-  String get programReset => 'Programme réinitialisé 🔄';
+  String get programReset => 'Program reset 🔄';
 
   @override
   String get eatClean => 'Eat clean today 🍏';

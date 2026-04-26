@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
     _loadSettings();
   }
 
-  /// 🔥 LOAD SAVED SETTINGS
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -45,7 +44,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  /// 🌍 SET LANGUAGE + SAVE
   Future<void> setLocale(Locale locale) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('language', locale.languageCode);
@@ -55,7 +53,6 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  /// 🌙 SET THEME + SAVE
   Future<void> setThemeMode(ThemeMode mode) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('theme', mode.name);
@@ -74,7 +71,6 @@ class _MyAppState extends State<MyApp> {
       locale: _locale,
       themeMode: _themeMode,
 
-      // 🌍 FIX LANGUAGE DETECTION
       localeResolutionCallback: (locale, supportedLocales) {
         for (var supportedLocale in supportedLocales) {
           if (supportedLocale.languageCode == locale?.languageCode) {
@@ -84,62 +80,86 @@ class _MyAppState extends State<MyApp> {
         return supportedLocales.first;
       },
 
-      // 🌞 LIGHT THEME
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: const Color(0xFF2563EB),
+
+        colorScheme: const ColorScheme.light(
+          primary: Color(0xFF2563EB),
+          secondary: Color(0xFF60A5FA),
+        ),
+
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF2563EB),
           foregroundColor: Colors.white,
           elevation: 0,
+          centerTitle: true,
         ),
+
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xFF2563EB),
+            backgroundColor: const Color(0xFF2563EB),
             foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(18),
             ),
+            elevation: 2,
           ),
         ),
+
         textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: Colors.black87),
+          bodyMedium: TextStyle(color: Colors.black87, fontSize: 14),
         ),
       ),
-
-      // 🌙 DARK THEME
       darkTheme: ThemeData(
         brightness: Brightness.dark,
+
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFF2563EB),
+          secondary: Color(0xFF60A5FA),
+        ),
+
         scaffoldBackgroundColor: const Color(0xFF0F172A),
+
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF111827),
+          backgroundColor: Color(0xFF0F172A),
           foregroundColor: Colors.white,
           elevation: 0,
+          centerTitle: true,
         ),
+
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFF2563EB),
             foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 14),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(18),
             ),
+            elevation: 2,
           ),
         ),
-        textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.white, fontSize: 14),
+        ),
       ),
 
-      // 🌍 LOCALIZATION
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+//languages
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+        Locale('fr'), 
+      ],
 
-      supportedLocales: const [Locale('en'), Locale('ar')],
-
-      // 🔥 RTL SUPPORT
       builder: (context, child) {
         return Directionality(
           textDirection: _locale.languageCode == 'ar'
